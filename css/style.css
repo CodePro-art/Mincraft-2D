@@ -1,0 +1,257 @@
+/* Reset */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body style */
+body {
+  /* overflow:hidden; */
+  overflow-x: hidden;
+  font-family: 'DotGothic16', sans-serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  
+  /* https: //wallpapercave.com/wp/wp2673437.jpg */
+  /* https: //wallpapercave.com/wp/wp2998843.jpg */
+  /* https: //wallpapercave.com/wp/wp2652291.jpg */
+  /* https: //wallpapercave.com/wp/wp138731.jpg */
+  /* https: //wallpapertag.com/wallpaper/full/6/d/1/419994-full-size-hd-minecraft-backgrounds-3200x1800-for-htc.jpg */
+
+  color: white;
+  letter-spacing: 1.5px;
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.cursor-axe{
+  cursor: url(../img/axe.cur),
+  auto;
+}
+.cursor-shovel{
+  cursor: url(../img/shovel.cur),
+  auto;
+}
+.cursor-pickaxe{
+  cursor: url(../img/pickaxe.cur),
+  auto;
+}
+.cursor-hoe{
+  cursor: url(../img/hoe.cur),
+  auto;
+}
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+#wrapper-1 {
+  background: url(https://wallpapercave.com/wp/wp5961273.jpg) no-repeat center center / cover;
+}
+#wrapper-2 {
+  flex-direction: row;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+  animation: sky 160s infinite;
+}
+@keyframes sky {
+  0%, 100% {  background-color: #0099ff; }
+  55% { background-color: #000033; }
+}
+
+.menu-buttons{
+  display: flex;
+  min-width: 120px;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #333;
+  z-index: 130;
+}
+
+.menu-buttons >*{
+  flex: 1;
+  border-radius: 1px;
+  border-top: 3px solid #444;
+  border-right: 3px solid #888;
+  border-bottom: 3px solid #555;
+  border-left: 3px solid #777;
+}
+
+.back {
+  transition: .3s;
+  color: #fff;
+  opacity: 0.6;
+}
+.back-container{
+  display: flex;
+  justify-content: center;
+}
+
+.inventory{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.inv:hover{
+  text-shadow: -1px 0 white,
+  0 1px white,
+  1px 0 white,
+  0 -1px white;
+  border: none;
+  animation: pop 0.3s linear 1;
+}
+
+@keyframes pop {
+  50% {
+    transform: scale(1.2);
+  }
+}
+.inv-dirt{  background: url(../img/inv-dirt.png) no-repeat center center / cover;}
+.inv-brick{  background: url(../img/inv-brick.png) no-repeat center center / cover;}
+.inv-coal{  background: url(../img/inv-coal.png) no-repeat center center / cover;}
+.inv-ice{  background: url(../img/inv-ice.png) no-repeat center center / cover;}
+.inv-gold{  background: url(../img/inv-gold.png) no-repeat center center / cover;}
+.inv-grass{  background: url(../img/inv-grass.png) no-repeat center center / cover;}
+.inv-diamond{  background: url(../img/inv-diamond.png) no-repeat center center / cover;}
+.inv-glass{  background: url(../img/inv-glass.png) no-repeat center center / cover;}
+.inv-sand{  background: url(../img/inv-sand.png) no-repeat center center / cover;}
+.inv-snow{  background: url(../img/inv-snow.png) no-repeat center center / cover;}
+.inv-stone{  background: url(../img/inv-stone.png) no-repeat center center / cover;}
+.inv-wood{  background: url(../img/inv-wood.png) no-repeat center center / cover;}
+.inv-silver{  background: url(../img/inv-silver.png) no-repeat center center / cover;}
+
+/* tools */
+.axe, .pickaxe, .shovel, .hoe, .inv{
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+}
+.axe{  background: url(../img/axe.png) no-repeat center center / cover;}
+.pickaxe{  background: url(../img/pickaxe.png) no-repeat center center / cover;}
+.shovel{  background: url(../img/shovel.png) no-repeat center center / cover;}
+.hoe{  background: url(../img/hoe.png) no-repeat center center / cover;}
+.tool-container, .item-container{  display: flex;}
+.tool-container p,
+.item-container p{ 
+  align-self: flex-end;
+  margin-left: 5px;
+}
+
+.reset-container{
+  display: flex;
+  justify-content: center;
+}
+.fa-refresh {
+  color: #9d9d9d;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.rst {
+  -webkit-animation: spin 0.2s ease-in-out;
+  -moz-animation: spin 0.2s ease-in-out;
+  animation: spin 0.2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.tool-container button:hover{  background-color: #999;}
+
+.title{
+  width: 100%;
+  background-color: #3a3a3a;
+  border-bottom: 3px solid #555;
+}
+.music{
+  display: flex;
+  justify-content:space-evenly;
+  flex: 0;
+}
+.reset{
+  color: #fff;
+}
+
+/* screen game */
+.game-screen {
+  position: relative;
+  width: 100%;
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  z-index: 100;
+}
+
+/* default box = sky */
+.box{
+  color: white;
+  background-color: transparent;
+  border: none;
+  width: 4%;
+  height: 5%;
+  transform: scale(0);
+  transition: 0.3s;
+}
+.box.animate{
+  transform: scale(1);
+}
+
+.box:hover{
+  box-shadow: 0 0 5px #fff;
+  border-radius: 3px;
+  border: 1px solid white;
+}
+
+.box:focus {
+  outline: none;
+}
+
+/* special tiles */
+
+.ground {  background: url(../img/gnd.jpg) no-repeat center center / cover;}
+.wood{  background: url(../img/wood.jpg) no-repeat center center / cover;}
+.water{  background: url(../img/water.jpg) no-repeat center center / cover;}
+.metal{  background: url(../img/metal.jpg) no-repeat center center / cover;}
+.lava{  background: url(../img/lava.jpg) no-repeat center center / cover;}
+.ice{  background: url(../img/ice.jpg) no-repeat center center / cover;}
+.leaves{  background: url(../img/leaves.jpg) no-repeat center center / cover;}
+.grass{  background: url(../img/grass.jpg) no-repeat top center / cover;}
+.bush{  background: url(../img/bush.jpg) no-repeat top center / cover;}
+.gold{  background: url(../img/gold.jpg) no-repeat top center / cover;}
+.silver{  background: url(../img/silver.jpg) no-repeat top center / cover;}
+.diamond{  background: url(../img/diamond.jpg) no-repeat top center / cover;}
+.stone{  background: url(../img/stone.jpg) no-repeat top center / cover;}
+
