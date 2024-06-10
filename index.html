@@ -17,12 +17,21 @@
 </head>
 <body>
   <div class="wrapper" id="wrapper-1">
-    <header>
+    <header id="text-container">
       <img src="https://cdn.worldvectorlogo.com/logos/minecraft.svg" alt="Minecraft Logo" width="600" height="100">
-      <br><h2>Mine, Craft, Build!</h2><br>
-      <h4>Click arrows or use arrow keys</h4>
+      <h2 class="sub-logo" id="line1"></h2>
+      <h4 id="line2"></h4>
+      <h4 id="line3"></h4>
+      <h4 id="line4"></h4>
     </header>
-    
+
+    <div class="video-background">
+      <video autoplay loop muted id="background-video">
+          <source src="video/Minecraft Soothing Scenes – Relaxing Beach Escape .mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+    </div>
+
     <audio id="player" src="./audio/bensound-adventure.mp3"></audio>
     <div class="container">
       <div class="volume">
@@ -32,12 +41,12 @@
         <button class="fa fa-caret-down fa-2x" onclick="document.getElementById('player').volume -= 0.1" aria-hidden="true"></button>
       </div>
       <div class="hex-row-wrapper">
-        <a href="#wrapper-2" class="hexagon one" data-type="games"><i class="fa fa-gamepad fa-3" id="hex"></i></a>
-        <a href="#" class="hexagon two" data-type="desktop"><i class="fa fa-television" id="hex"></i></a>
-        <a href="#" class="hexagon three" data-type="controls"><i class="fa fa-keyboard-o" id="hex"></i></a>
-        <a href="#" class="hexagon four" data-type="profile"><i class="fa fa-user" id="hex"></i></a>
-        <a href="#" class="hexagon five selected" data-type="search"><i class="fa fa-globe" id="hex"></i></a>
-        <botton class="hexagon six" data-type="music" ><i class="fa fa-music" id="hex"></i></botton>
+        <a href="#wrapper-2" class="hexagon one" data-type="games"><i class="fa fa-gamepad fa-3" id="hex" data-hover-text="Play"></i></a>
+        <a href="#" class="hexagon two" data-type="desktop"><i class="fa fa-television" id="hex" data-hover-text="Screen"></i></a>
+        <a href="#" class="hexagon three" data-type="controls"><i class="fa fa-keyboard-o" id="hex" data-hover-text="Keyboard"></i></a>
+        <a href="#" class="hexagon four" data-type="profile"><i class="fa fa-user" id="hex" data-hover-text="Leadboard"></i></a>
+        <a href="#" class="hexagon five selected" data-type="search"><i class="fa fa-globe" id="hex" data-hover-text="Internet"></i></a>
+        <botton class="hexagon six" data-type="music" ><i class="fa fa-music" id="hex" data-hover-text="Music"></i></botton>
       </div>
       <div class="active">
         <div class="arrow-left"></div>
@@ -48,34 +57,29 @@
   </div>
 
   <div class="wrapper" id="wrapper-2" style="display: none;">
+    <div id="instructions">
+      <br><h2>Instructions</h2></br>
+      <h4>1. Choose a harvesting tool from your tool box.</h4>
+      <h4>2. Each tool can be used to harvest specific elements in the game.</h4>
+      <h4>3. Harvested elements can be found in your inventory and can be used to creat surprizing new materials.</h4></br>
+      <h4>4. Use the reset button to start over.</h4>
+      <h4>5. Use the music buttons to control the volume of the background music.</h4>
+      <h4><span class="toolname">Pickaxe</span>: use to mine <span class="material">stone</span> and other minerals.</h4>
+      <h4><span class="toolname">Axe</span>: use to break <span class="material">wood</span> and <span class="material">trees</span>.</h4>
+      <h4><span class="toolname">Shovel</span>: use to pick up <span class="material">dirt</span>, <span class="material">ground</span>, <span class="material">snow</span>, etc.</h4>
+      <h4><span class="toolname">Hoe</span>: use to harvest <span class="material">grass</span> and <span class="material">leaves</span>.</h4>
+      <h4>This mini-game was developed in two days</h4>
+    </div>
     <div class="cloude-container">
-      <img class="cloud sml"
-        src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_sml.png" width="70"
-        height="36" />
-      <img class="cloud med"
-        src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_med.png" width="100"
-        height="52" />
-      <img class="cloud lrg"
-        src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_lrg.png" width="130"
-        height="67" />
-      <img class="cloud smal"
-        src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_sml.png" width="84"
-        height="44" />
-      <img class="cloud medi"
-        src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_med.png" width="120"
-        height="62.4" />
-      <img class="cloud larg"
-        src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_lrg.png" width="195"
-        height="100" />
-      <img class="cloud small"
-        src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_sml.png" width="91"
-        height="47" />
-      <img class="cloud mediu"
-        src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_med.png" width="110"
-        height="57.2" />
-      <img class="cloud large"
-        src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_lrg.png" width="169"
-        height="87" />
+      <img class="cloud sml" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_sml.png" width="70" height="36" />
+      <img class="cloud med" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_med.png" width="100" height="52" />
+      <img class="cloud lrg" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_lrg.png" width="130" height="67" />
+      <img class="cloud smal" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_sml.png" width="84" height="44" />
+      <img class="cloud medi" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_med.png" width="120" height="62.4" />
+      <img class="cloud larg" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_lrg.png" width="195" height="100" />
+      <img class="cloud small" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_sml.png" width="91" height="47" />
+      <img class="cloud mediu" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_med.png" width="110" height="57.2" />
+      <img class="cloud large" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_lrg.png" width="169" height="87" />
     </div>
     <section class="menu-buttons">
       <div class="back-container">
@@ -87,7 +91,7 @@
         <button class="fas fa-minus" onclick="document.getElementById('player').volume -= 0.1" aria-hidden="true"></button>
       </div>
       <div class="tools">
-        <p class="title">Tools</p>
+        <p class="title">Tool Box</p>
         <div class="tool-container">
           <button class="tool axe"></button>
           <p>Axe</p>
