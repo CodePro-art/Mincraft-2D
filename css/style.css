@@ -53,7 +53,7 @@ header {
 }
 
 .cursor-axe{
-  cursor: url(../img/axe.cur),
+  cursor: url(../img/axe.cur), 
   auto;
 }
 .cursor-shovel{
@@ -65,9 +65,9 @@ header {
   auto;
 }
 .cursor-hoe{
-  cursor: url(../img/hoe.cur),
-  auto;
+  cursor: url(../img/hoe.cur),  auto;
 }
+
 .wrapper{
   display: flex;
   flex-direction: column;
@@ -170,6 +170,7 @@ header {
   color: #fff;
   opacity: 0.6;
 }
+
 .back-container{
   max-height: 70px;
   display: flex;
@@ -177,12 +178,19 @@ header {
 }
 
 .inventory{
-  background: red;
+  background: #ededed;
   min-height: 50vh;
   display: flex;
-  flex-direction: column;
+  flex-direction:row;
   align-items: flex-start;
 }
+
+.inv {
+  margin: 15px;
+  font-size: large;
+  border: none;
+}
+
 .inv:hover{
   text-shadow: -1px 0 white,
   0 1px white,
@@ -194,7 +202,7 @@ header {
 
 @keyframes pop {
   50% {
-    transform: scale(1.2);
+    transform: scale(1.4);
   }
 }
 
@@ -230,7 +238,6 @@ header {
   border: white 1px solid;
   background-color: transparent;
   cursor: pointer;
-
 }
 
 .axe{  background: url(../img/axe.png) no-repeat center center / cover;}
@@ -239,8 +246,9 @@ header {
 .hoe{  background: url(../img/hoe.png) no-repeat center center / cover;}
 .tool-container, .item-container{  display: flex;}
 .tool-container p, .item-container p{ 
+  position: absolute;
   align-self: flex-end;
-  margin-left: 5px;
+  margin-left: 25px;
 }
 
 .tool{
@@ -293,6 +301,7 @@ header {
 .tool-container button:hover{  background-color: #e9e9e9;}
 
 .title{
+  font-family: minecraftTitleFont;
   width: 100%;
   background-color: #3a3a3a;
   border-bottom: 3px solid #555;

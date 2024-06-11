@@ -86,7 +86,7 @@
         <a href="#" class="back"><i class="fas fa-chevron-circle-up fa-3x"></i></a>
       </div>
       <div class="music">
-        <h4 style="font-size: large;">MUSIC</h4>
+        <h4 class="title" style="font-size: large;">MUSIC</h4>
         <div class="music-buttons">
           <button class="fas fa-plus" onclick="document.getElementById('player').volume += 0.1" aria-hidden="true" style="font-size: large;"></button>
           <button class="pause start"><i class="fas fa-pause" style="display: none; font-size: large;"></i></i><i class="fas fa-play" style="font-size: large;"></i></button>
@@ -111,61 +111,66 @@
           <button class="tool hoe"></button>
           <p>Hoe</p>
         </div>
+        
       </div>
+      <p class="title">Inventory</p>
       <div class="inventory">
-        <p class="title">Inventory</p>
-        <div class="item-container">
-          <button class="inv inv-dirt">0</button>
-          <p>dirt</p>
+        <div class="left-col">
+          <div class="item-container">
+            <button class="inv inv-dirt">0</button>
+            <p>dirt</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-brick">0</button>
+            <p>brick</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-coal">0</button>
+            <p>coal</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-ice">0</button>
+            <p>ice</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-gold">0</button>
+            <p>gold</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-grass">0</button>
+            <p>grass</p>
+          </div>
+          
         </div>
-        <div class="item-container">
-          <button class="inv inv-brick">0</button>
-          <p>brick</p>
+        <div class="right-col">
+          <div class="item-container">
+            <button class="inv inv-silver">0</button>
+            <p>silver</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-glass">0</button>
+            <p>glass</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-sand">0</button>
+            <p>sand</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-snow">0</button>
+            <p>snow</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-stone">0</button>
+            <p>stone</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-wood">0</button>
+            <p>wood</p>
+          </div>
         </div>
-        <div class="item-container">
-          <button class="inv inv-coal">0</button>
-          <p>coal</p>
-        </div>
-        <div class="item-container">
-          <button class="inv inv-ice">0</button>
-          <p>ice</p>
-        </div>
-        <div class="item-container">
-          <button class="inv inv-gold">0</button>
-          <p>gold</p>
-        </div>
-        <div class="item-container">
-          <button class="inv inv-grass">0</button>
-          <p>grass</p>
-        </div>
-        <div class="item-container">
-          <button class="inv inv-silver">0</button>
-          <p>silver</p>
-        </div>
-        <div class="item-container">
-          <button class="inv inv-glass">0</button>
-          <p>glass</p>
-        </div>
-        <div class="item-container">
-          <button class="inv inv-sand">0</button>
-          <p>sand</p>
-        </div>
-        <div class="item-container">
-          <button class="inv inv-snow">0</button>
-          <p>snow</p>
-        </div>
-        <div class="item-container">
-          <button class="inv inv-stone">0</button>
-          <p>stone</p>
-        </div>
-        <div class="item-container">
-          <button class="inv inv-wood">0</button>
-          <p>wood</p>
-        </div>
-
       </div>
       <div class="reset-container">
-        <h4>RESET WORLD</h4>
+        <h4 class="title">RESET WORLD</h4>
         <button id="rst-btn" class="fa fa-refresh fa-lg" onclick="reset()"></button>
       </div>
      

@@ -34,6 +34,7 @@ class Minecraft {
   }
   // function to initialize world
   initialize(){
+    console.log("init");
     for(let i=0; i<rows ;i++){
       for(let j=0; j<cols ;j++){
         let box = document.createElement('button');
@@ -74,6 +75,7 @@ class Minecraft {
   }
 
   resetMap(){
+    console.log("remove!");
     screen.remove();
     screen = document.createElement('section');
     screen.classList.add('game-screen');
@@ -237,6 +239,44 @@ function updateInventory(){
     item.innerHTML = game.inventoryCounter[item.classList[1].slice(4)];
   });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const textLines = [
+      "<br><h2 class=\"sub-logo\">Mine, Craft, Build!</h2><br>",
+      "<h4>Use the arrow keys to navigate the menu and press 'Enter' to approve</h4>",
+      "<h4>Use the up and down arrows to control the music volume</h4>",
+      "<h4>While in the game, follow the instructions on the top right corner</h4>"
+  ];
+
+  const container = document.getElementById("text-container");
+
+  let currentLine = 0;
+  let currentChar = 0;
+
+  function typeLine() {
+      if (currentLine < textLines.length) {
+          let lineElement = document.createElement("div");
+          container.appendChild(lineElement);
+          typeCharacter(lineElement, textLines[currentLine], 0);
+      }
+  }
+
+  function typeCharacter(element, text, index) {
+      if (index < text.length) {
+          element.innerHTML = text.substring(0, index + 1);
+          setTimeout(function() {
+              typeCharacter(element, text, index + 1);
+          }, 50); // Adjust typing speed here
+      } else {
+          currentLine++;
+          if (currentLine < textLines.length) {
+              setTimeout(typeLine, 500); // Adjust delay before starting next line here
+          }
+      }
+  }
+
+  typeLine();
+});
 
 
 
