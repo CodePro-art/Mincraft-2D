@@ -1,9 +1,27 @@
+@font-face {
+  font-family: minecraftFontItalic;
+  src: url("./minecraft_font/MinecraftBoldItalic-1y1e.otf");
+}
+@font-face {
+  font-family: minecraftFontRegular;
+  src: url("./minecraft_font/MinecraftRegular-Bmg3.otf");
+}
+@font-face {
+  font-family: minecraftFontBold;
+  src: url("./minecraft_font/MinecraftBold-nMK1.otf");
+}
+@font-face {
+  font-family: minecraftTitleFont;
+  src: url("./minecraft_font/MinecraftEvenings-RBao.ttf");
+}
+
 /* Reset */
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -57,9 +75,65 @@ header {
   height: 100vh;
   width: 100vw;
 }
-#wrapper-1 {
-  background: url(https://wallpapercave.com/wp/wp5961273.jpg) no-repeat center center / cover;
+
+#text-container {
+  min-height: 30vh;
 }
+
+#instructions {
+  /* font-family: minecraftTitleFont;
+   */
+  font-family: 'DotGothic16', sans-serif;
+  position: fixed;
+  width: 500px;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#instructions h4 {
+  margin-bottom: 10px;
+}
+
+.toolname {
+  color: #9fb60f;
+}
+
+.material {
+  color: #c4661a;
+}
+
+/* #wrapper-1 {
+  background: url(https://wallpapercave.com/wp/wp5961273.jpg) no-repeat center center / cover;
+} */
+
+.sub-logo 
+{
+  font-size: 30px;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  overflow: hidden;
+}
+
+#background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the video covers the whole background */
+  transform: translate(-50%, -50%);
+}
+
 #wrapper-2 {
   flex-direction: row;
   align-items: stretch;

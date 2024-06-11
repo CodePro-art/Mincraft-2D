@@ -34,7 +34,6 @@ class Minecraft {
   }
   // function to initialize world
   initialize(){
-    console.log("init");
     for(let i=0; i<rows ;i++){
       for(let j=0; j<cols ;j++){
         let box = document.createElement('button');
@@ -75,7 +74,6 @@ class Minecraft {
   }
 
   resetMap(){
-    console.log("remove!");
     screen.remove();
     screen = document.createElement('section');
     screen.classList.add('game-screen');
