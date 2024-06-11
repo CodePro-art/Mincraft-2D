@@ -86,9 +86,12 @@
         <a href="#" class="back"><i class="fas fa-chevron-circle-up fa-3x"></i></a>
       </div>
       <div class="music">
-        <button class="fas fa-plus" onclick="document.getElementById('player').volume += 0.1" aria-hidden="true"></button>
-        <button class="pause start"><i class="fas fa-pause" style="display: none;"></i></i><i class="fas fa-play"></i></button>
-        <button class="fas fa-minus" onclick="document.getElementById('player').volume -= 0.1" aria-hidden="true"></button>
+        <h4 style="font-size: large;">MUSIC</h4>
+        <div class="music-buttons">
+          <button class="fas fa-plus" onclick="document.getElementById('player').volume += 0.1" aria-hidden="true" style="font-size: large;"></button>
+          <button class="pause start"><i class="fas fa-pause" style="display: none; font-size: large;"></i></i><i class="fas fa-play" style="font-size: large;"></i></button>
+          <button class="fas fa-minus" onclick="document.getElementById('player').volume -= 0.1" aria-hidden="true style="font-size: large;""></button>
+        </div>
       </div>
       <div class="tools">
         <p class="title">Tool Box</p>
@@ -162,6 +165,7 @@
 
       </div>
       <div class="reset-container">
+        <h4>RESET WORLD</h4>
         <button id="rst-btn" class="fa fa-refresh fa-lg" onclick="reset()"></button>
       </div>
      
