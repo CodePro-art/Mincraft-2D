@@ -86,7 +86,9 @@
         <a href="#" class="back"><i class="fas fa-chevron-circle-up fa-3x"></i></a>
       </div>
       <div class="music">
-        <h4 class="title" style="font-size: large;">MUSIC</h4>
+        <div>
+          <p class="title" style="font-size: large;">Music</p>
+        </div>
         <div class="music-buttons">
           <button class="fas fa-plus" onclick="document.getElementById('player').volume += 0.1" aria-hidden="true" style="font-size: large;"></button>
           <button class="pause start"><i class="fas fa-pause" style="display: none; font-size: large;"></i></i><i class="fas fa-play" style="font-size: large;"></i></button>
@@ -95,21 +97,27 @@
       </div>
       <div class="tools">
         <p class="title">Tool Box</p>
-        <div class="tool-container">
-          <button class="tool axe"></button>
-          <p>Axe</p>
-        </div>
-        <div class="tool-container">
-          <button class="tool pickaxe"></button>
-          <p>PickAxe</p>
-        </div>
-        <div class="tool-container">
-          <button class="tool shovel"></button>
-          <p>Shovel</p>
-        </div>
-        <div class="tool-container">
-          <button class="tool hoe"></button>
-          <p>Hoe</p>
+        <div class="tools-cols">
+          <div class="left-col">
+            <div class="tool-container">
+              <button class="tool axe"></button>
+              <p>Axe</p>
+            </div>
+            <div class="tool-container">
+              <button class="tool pickaxe"></button>
+              <p>PickAxe</p>
+            </div>
+          </div>
+          <div class="right-col">
+            <div class="tool-container">
+              <button class="tool shovel"></button>
+              <p>Shovel</p>
+            </div>
+            <div class="tool-container">
+              <button class="tool hoe"></button>
+              <p>Hoe</p>
+            </div>
+          </div>
         </div>
         
       </div>
@@ -170,7 +178,7 @@
         </div>
       </div>
       <div class="reset-container">
-        <h4 class="title">RESET WORLD</h4>
+        <p class="title">Reset world</p>
         <button id="rst-btn" class="fa fa-refresh fa-lg" onclick="reset()"></button>
       </div>
      
