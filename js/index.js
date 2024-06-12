@@ -15,7 +15,7 @@ class Minecraft {
     this.width = width;
     this.trees = trees;
     this.bushes = bushes;
-    this.selectedTool ="cursor-default";
+    this.selectedTool ="";
     this.selectedItem ="";
     this.inventoryCounter ={
       dirt: 0,
@@ -133,6 +133,10 @@ tool.forEach((e)=>{
   e.addEventListener('click',()=>{
     if(e.classList.contains('axe')){
       game.selectedTool ="axe";
+      document.querySelector('.axe').classList.add('selected');
+      document.querySelector('.pickaxe').classList.remove('selected');
+      document.querySelector('.shovel').classList.remove('selected');
+      document.querySelector('.hoe').classList.remove('selected');
       tiles.forEach((box)=>{
         box.classList.add('cursor-axe');
         box.classList.remove('cursor-default');
@@ -140,10 +144,13 @@ tool.forEach((e)=>{
         box.classList.remove('cursor-shovel');
         box.classList.remove('cursor-hoe');
       });
-  // url(../img/axe.png), auto;
     }
     if(e.classList.contains('pickaxe')){
       game.selectedTool ="pickaxe";
+      document.querySelector('.axe').classList.remove('selected');
+      document.querySelector('.pickaxe').classList.add('selected');
+      document.querySelector('.shovel').classList.remove('selected');
+      document.querySelector('.hoe').classList.remove('selected');
       tiles.forEach((box)=>{
         box.classList.add('cursor-pickaxe');
         box.classList.remove('cursor-default');
@@ -154,6 +161,10 @@ tool.forEach((e)=>{
     }
     if(e.classList.contains('shovel')){
       game.selectedTool ="shovel";
+      document.querySelector('.axe').classList.remove('selected');
+      document.querySelector('.pickaxe').classList.remove('selected');
+      document.querySelector('.shovel').classList.add('selected');
+      document.querySelector('.hoe').classList.remove('selected');
       tiles.forEach((box)=>{
         box.classList.add('cursor-shovel');
         box.classList.remove('cursor-default');
@@ -164,9 +175,12 @@ tool.forEach((e)=>{
     }
     if(e.classList.contains('hoe')){
       game.selectedTool ="hoe";
+      document.querySelector('.axe').classList.remove('selected');
+      document.querySelector('.pickaxe').classList.remove('selected');
+      document.querySelector('.shovel').classList.remove('selected');
+      document.querySelector('.hoe').classList.add('selected');
       tiles.forEach((box)=>{
         box.classList.add('cursor-hoe');
-        
         box.classList.remove('cursor-pickaxe');
         box.classList.remove('cursor-shovel');
         box.classList.remove('cursor-axe');
@@ -252,6 +266,7 @@ function updateInventory(){
   });
 }
 
+//dynamically wrie text
 document.addEventListener("DOMContentLoaded", function() {
   const textLines = [
       "<br><h2 class=\"sub-logo\">Mine, Craft, Build!</h2><br>",
@@ -289,7 +304,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   typeLine();
 });
-
 
 
 

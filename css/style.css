@@ -25,7 +25,7 @@
 :root {
   --container_color: #ffc878;
   --menu_color: #ffc878;
-  --menu_dark: #ad813e;
+  --menu_dark: #775201;
 }
 
 html {
@@ -88,22 +88,21 @@ header {
 }
 
 #instructions {
-  /* font-family: minecraftTitleFont;
-   */
   font-family: 'DotGothic16', sans-serif;
   position: fixed;
   width: 500px;
   top: 10px;
   right: 10px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   padding: 10px;
   border-radius: 5px;
   z-index: 100;
-  
+  padding-left: 50px;
 }
 
 #instructions h4 {
   margin-bottom: 10px;
+  text-indent: -2em;
 }
 
 .toolname {
@@ -188,6 +187,7 @@ header {
   max-height: 70px;
   display: flex;
   justify-content: center;
+  background: var(--menu_color);
 }
 
 .inventory{
@@ -240,6 +240,7 @@ header {
   font-size: large;
   background: var(--menu_color);
   max-height: 15vh;
+  min-height: 250px;
   cursor: url(../img/cursors/pointer.cur), auto;
 }
 
@@ -259,21 +260,22 @@ header {
 .shovel{  background: url(../img/shovel.png) no-repeat center center / cover;}
 .hoe{  background: url(../img/hoe.png) no-repeat center center / cover;}
 .tool-container, .item-container{  display: flex;}
-.tool-container p, .item-container p{ 
+.item-container p{ 
   position: absolute;
   align-self: flex-end;
   margin-left: 25px;
 }
 
 .tool-container p {
-  margin-left: 5px;
-  margin-top: 50px;
+  position: absolute;
+  align-self: flex-end;
+  margin-top: 75px;
 }
 
 .tool{
-  background-color: transparent;
-  border: none;
+  background-color: rgb(104, 104, 104);
   cursor: url(../img/cursors/pointer.cur), auto;
+  margin-bottom: 10px;
 }
 
 .cursor-default{
@@ -301,6 +303,7 @@ header {
   justify-content: center;
   max-height: 100px;
   background: var(--menu_color);
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 
 .fa-refresh {
@@ -339,7 +342,6 @@ header {
 }
 
 .tools-cols {
-  border-top: 3px solid #010101;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -398,6 +400,19 @@ header {
   cursor: url(../img/cursors/pointer.cur), auto;
 }
 
+.volume-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: var(--menu_color);
+  padding: 20px;
+  padding-top: 0px;
+  z-index: 130;
+  width: 100%;
+
+}
+
 .reset{
   color: #fff;
 }
@@ -422,8 +437,8 @@ header {
   height: 5%;
   transform: scale(0);
   transition: 0.3s;
-  /* cursor: url(../img/cursors/default.cur), auto; */
 }
+
 .box.animate{
   transform: scale(1);
 }
@@ -454,3 +469,8 @@ header {
 .diamond{  background: url(../img/diamond.jpg) no-repeat top center / cover;}
 .stone{  background: url(../img/stone.jpg) no-repeat top center / cover;}
 
+.tool.selected{
+  border: 2px solid #000000;
+  border-radius: 3px;
+  background-color: rgb(199, 199, 199);
+}

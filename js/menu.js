@@ -133,4 +133,18 @@ back.addEventListener('click',()=>{
   gameConsole.style.display = "none";
 })
 
+const player = document.getElementById('player');
+const volumeRange = document.getElementById('volumeRange');
 
+volumeRange.addEventListener('change', function() {
+    player.volume = volumeRange.value;
+});
+
+function changeVolume(amount) {
+    player.volume = Math.min(Math.max(player.volume + amount, 0), 1);
+    volumeRange.value = player.volume;
+}
+
+function updateVolume() {
+    player.volume = volumeRange.value;
+}

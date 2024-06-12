@@ -37,7 +37,6 @@
       <div class="volume">
         <button class="fa fa-caret-up fa-2x" onclick="document.getElementById('player').volume += 0.1" aria-hidden="true"></button>
         <input type="checkbox" class="checkbox">
-        
         <button class="fa fa-caret-down fa-2x" onclick="document.getElementById('player').volume -= 0.1" aria-hidden="true"></button>
       </div>
       <div class="hex-row-wrapper">
@@ -61,14 +60,14 @@
       <br><h2>Instructions</h2></br>
       <h4>1. Choose a harvesting tool from your tool box.</h4>
       <h4>2. Each tool can be used to harvest specific elements in the game.</h4>
-      <h4>3. Harvested elements can be found in your inventory and can be used to creat surprizing new materials.</h4></br>
+      <h4>3. Harvested elements can be found in your inventory and can be used to creat surprizing new materials.</h4>
       <h4>4. Use the reset button to start over.</h4>
-      <h4>5. Use the music buttons to control the volume of the background music.</h4>
+      <h4>5. Use the music buttons to control the volume of the background music.</h4></br>
       <h4><span class="toolname">Pickaxe</span>: use to mine <span class="material">stone</span> and other minerals.</h4>
       <h4><span class="toolname">Axe</span>: use to break <span class="material">wood</span> and <span class="material">trees</span>.</h4>
       <h4><span class="toolname">Shovel</span>: use to pick up <span class="material">dirt</span>, <span class="material">ground</span>, <span class="material">snow</span>, etc.</h4>
-      <h4><span class="toolname">Hoe</span>: use to harvest <span class="material">grass</span> and <span class="material">leaves</span>.</h4>
-      <h4>This mini-game was developed in two days</h4>
+      <h4><span class="toolname">Hoe</span>: use to harvest <span class="material">grass</span> and <span class="material">leaves</span>.</h4></br>
+      <h4>This mini-game was developed in two days work</h4>
     </div>
     <div class="marquee">
       <div class="clouds"><img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" /></div>
@@ -83,16 +82,20 @@
       <div class="back-container">
         <a href="#" class="back"><i class="fas fa-chevron-circle-up fa-3x"></i></a>
       </div>
-      <p class="title" style="font-size: large;">Music</p>
+      <p class="title" style="font-size: large;">MUSIC</p>
       <div class="music">
         <div class="music-buttons">
-          <button class="fas fa-plus" onclick="document.getElementById('player').volume += 0.1" aria-hidden="true" style="font-size: large;"></button>
+          <button class="fas fa-plus" onclick="changeVolume(0.1)" aria-hidden="true" style="font-size: large;"></button>
           <button class="pause start"><i class="fas fa-pause" style="display: none; font-size: large;"></i></i><i class="fas fa-play" style="font-size: large;"></i></button>
-          <button class="fas fa-minus" onclick="document.getElementById('player').volume -= 0.1" aria-hidden="true style="font-size: large;""></button>
+          <button class="fas fa-minus" onclick="changeVolume(-0.1)" aria-hidden="true" style="font-size: large;""></button>
         </div>
+        <div class="volume-control">
+          <label for="volumeRange">Volume:</label>
+          <input type="range" id="volumeRange" min="0" max="1" step="0.01" value="1" onchange="updateVolume()">
       </div>
+      </div>
+      <p class="title">TOOL BOX</p>
       <div class="tools">
-        <p class="title">Tool Box</p>
         <div class="tools-cols">
           <div class="left-col">
             <div class="tool-container">
@@ -101,7 +104,7 @@
             </div>
             <div class="tool-container">
               <button class="tool pickaxe"></button>
-              <p">PickAxe</p>
+              <p>PickAxe</p>
             </div>
           </div>
           <div class="right-col">
@@ -116,7 +119,7 @@
           </div>
         </div>
       </div>
-      <p class="title">Inventory</p>
+      <p class="title">INVENTORY</p>
       
       <div class="inventory">
         <div class="left-col">
@@ -173,7 +176,7 @@
           </div>
         </div>
       </div>
-      <p class="title">Reset world</p>
+      <p class="title">RESET WORLD</p>
       <div class="reset-container">
         <button id="rst-btn" class="fa fa-refresh fa-2x" onclick="reset()"></button>
       </div>
