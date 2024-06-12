@@ -1,41 +1,19 @@
-.cloud-container{
-  position: relative;
-  z-index: -50;
+.marquee {
+  position: fixed;
+  opacity: 0.8;
+  display: flex;
+  animation: marquee 150s linear infinite running;
+
+  .clouds {
+    width: 100%;
+  }
 }
 
-.cloud {
-  position: absolute;
-  -webkit-animation: cloudDrift linear infinite;
-  animation: cloudDrift linear infinite;
-  z-index: 90;
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
-
-.lrg, .larg, .large {
-  -webkit-animation-duration: 100s;
-  animation-duration: 100s;
-}
-.sml, .smal, .small {
-  -webkit-animation-duration: 60s;
-  animation-duration: 60s;
-}
-.med, .medi, .mediu {
-  -webkit-animation-duration: 80s;
-  animation-duration: 80s;
-}
-.lrg {  top: 10vh;  left: -350px;}
-.larg {  top: 20vh;  left: -700px;}
-.large {  top: 30vh;  left: -550px;}
-.sml {  top: 40px;  left: -1000px;}
-.smal {  top: 35vh;  left: -1500px;}
-.small {  top: 25vh;  left: -600px;}
-.med {  top: 15px;  left: -1100px;}
-.medi {  top: 50vh;  left: 0px;}
-.mediu {  top: 45vh;  left: -2000px;}
-
-/* Keyframe animations */
-
-@keyframes cloudDrift {
-  from {transform: translateX(0px);}
-  to { transform: translateX(200vh); }
-}
-

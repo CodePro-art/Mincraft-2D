@@ -17,6 +17,7 @@
   height: 87px;
   background-image: url(../img/hexagon.svg);
   z-index: 999;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 
 .hexagon:hover {
@@ -131,6 +132,7 @@
   position: absolute;
   left: 28px;
   bottom: -19px;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 
 .arrow-right {
@@ -140,6 +142,7 @@
   position: absolute;
   left: 28px;
   top: -21px;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 
 i.fa {
@@ -151,6 +154,7 @@ i.fa {
   height: 100%;
   text-align: center;
   line-height: 85px;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 
 .volume {
@@ -168,6 +172,7 @@ i.fa {
   height: 80px;
   border-radius: 50%;
   z-index: 10;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 .volume >*{
   border: none;
@@ -176,7 +181,7 @@ i.fa {
   transition: .3s;
   height: 50px;
   width: 50px;
-  cursor: pointer;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 .fa-refresh:hover,
 .fa-plus:hover,

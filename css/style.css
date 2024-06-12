@@ -22,18 +22,24 @@
   box-sizing: border-box;
 }
 
+:root {
+  --container_color: #ffc878;
+  --menu_color: #ffc878;
+  --menu_dark: #ad813e;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  overflow-x: hidden;
   font-family: 'DotGothic16', sans-serif;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   color: white;
   letter-spacing: 1.5px;
   width: 100vw;
   height: 100vh;
+  cursor: url(../img/cursors/default.cur), auto;
 }
 
 header {
@@ -41,6 +47,10 @@ header {
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
+}
+
+.cursor-default {
+  cursor: url(../img/cursors/default.cur), auto;
 }
 
 .cursor-axe{
@@ -57,6 +67,12 @@ header {
 
 .cursor-hoe{
   cursor: url(../img/cursors/hoe.cur), auto;
+}
+
+.chosen {
+  border: 3px solid #000000;
+  border-radius: 5px;
+  opacity: 1;
 }
 
 .wrapper{
@@ -79,9 +95,11 @@ header {
   width: 500px;
   top: 10px;
   right: 10px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.7);
   padding: 10px;
   border-radius: 5px;
+  z-index: 100;
+  
 }
 
 #instructions h4 {
@@ -126,16 +144,15 @@ header {
 }
 
 #wrapper-2 {
+  background-image: url("https://assets.codepen.io/7237686/bg.png?format=auto");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
   flex-direction: row;
   align-items: stretch;
   position: relative;
   overflow: hidden;
-  animation: sky 160s infinite;
-}
-
-@keyframes sky {
-  0%, 100% {  background-color: #0099ff; }
-  55% { background-color: #000033; }
 }
 
 .menu-buttons{
@@ -150,7 +167,7 @@ header {
 .menu-buttons >*{
   flex: 1;
   border-radius: 1px;
-  border-top: 1px solid #ffffff;
+  border-top: 3px solid #010101;
   border-right: 3px solid #010101;
 }
 
@@ -158,6 +175,13 @@ header {
   transition: .3s;
   color: #fff;
   opacity: 0.6;
+  cursor: url(../img/cursors/pointer.cur), auto;
+}
+
+.back :hover{
+  opacity: 1;
+  color: white;
+  border: none;
 }
 
 .back-container{
@@ -167,7 +191,7 @@ header {
 }
 
 .inventory{
-  background: #ffc800;
+  background: var(--menu_color);
   min-height: 50vh;
   display: flex;
   flex-direction:row;
@@ -176,8 +200,9 @@ header {
 
 .inv {
   margin: 15px;
-  font-size: large;
+  font-size: 24px;
   border: none;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 
 .inv:hover{
@@ -213,8 +238,9 @@ header {
 
 .tools {
   font-size: large;
-  background: #ffc800;
-  max-height: 280px;
+  background: var(--menu_color);
+  max-height: 15vh;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 
 .axe, .pickaxe, .shovel, .hoe, .inv{
@@ -225,7 +251,7 @@ header {
 
 .axe, .pickaxe, .shovel, .hoe {
   background-color: transparent;
-  cursor: pointer;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 
 .axe{  background: url(../img/axe.png) no-repeat center center / cover;}
@@ -241,26 +267,47 @@ header {
 
 .tool-container p {
   margin-left: 5px;
+  margin-top: 50px;
 }
 
 .tool{
   background-color: transparent;
   border: none;
+  cursor: url(../img/cursors/pointer.cur), auto;
+}
+
+.cursor-default{
+  cursor: url(../img/cursors/default.cur), auto;
+}
+
+.cursor-axe{
+  cursor: url(../img/cursors/axe.cur), auto;
+}
+
+.cursor-shovel{
+  cursor: url(../img/cursors/shovel.cur), auto;
+}
+
+.cursor-pickaxe{
+  cursor: url(../img/cursors/pickaxe.cur), auto;
+}
+
+.cursor-hoe{
+  cursor: url(../img/cursors/hoe.cur), auto;
 }
 
 .reset-container{
-  max-height: 70px;
-  background: #ffc800;
   display: flex;
   justify-content: center;
+  max-height: 100px;
+  background: var(--menu_color);
 }
 
 .fa-refresh {
-  color: #d9d9d9;
   border-radius: 50%;
   border: none;
   background-color: transparent;
-  cursor: pointer;
+  cursor: url(../img/cursors/pointer.cur), auto;
   outline: none;
 }
 
@@ -269,6 +316,7 @@ header {
   -moz-animation: spin 0.2s ease-in-out;
   animation: spin 0.2s ease-in-out;
   animation-fill-mode: forwards;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 
 @-moz-keyframes spin {
@@ -291,10 +339,26 @@ header {
 }
 
 .tools-cols {
+  border-top: 3px solid #010101;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex: 1;
+}
+
+.tools{
+  max-height: 16vh;
+}
+
+.tool-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: var(--menu_color);
+  padding: 5px;
+  margin: 10px;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 
 .tool-container button:hover{  
@@ -303,10 +367,10 @@ header {
 }
 
 .title{
-  font-family: 20px;
+  padding: 0px 0px 0px 20px;
+  font-size: 20px;
   max-height: 30px;
-  background-color: #1c1c1c;
-  border-bottom: 1px solid #e2e2e2;
+  background: var(--menu_dark);
   margin: 0 px 10px;
 }
 
@@ -322,10 +386,16 @@ header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background: #ffc800;
+  background: var(--menu_color);
   padding: 20px;
   z-index: 130;
   width: 100%;
+}
+
+.music-buttons button{
+  height: 20px;
+  width: 20px;
+  cursor: url(../img/cursors/pointer.cur), auto;
 }
 
 .reset{
@@ -340,6 +410,7 @@ header {
   list-style: none;
   flex-wrap: wrap;
   z-index: 100;
+  cursor: url(../img/cursors/default.cur), auto;
 }
 
 /* default box = sky */
@@ -351,6 +422,7 @@ header {
   height: 5%;
   transform: scale(0);
   transition: 0.3s;
+  /* cursor: url(../img/cursors/default.cur), auto; */
 }
 .box.animate{
   transform: scale(1);

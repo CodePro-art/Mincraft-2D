@@ -18,7 +18,7 @@
 <body>
   <div class="wrapper" id="wrapper-1">
     <header id="text-container">
-      <img src="https://cdn.worldvectorlogo.com/logos/minecraft.svg" alt="Minecraft Logo" width="600" height="100">
+      <img src="https://cdn.worldvectorlogo.com/logos/minecraft.svg" alt="Minecraft Logo" width="900" height="120">
       <h2 class="sub-logo" id="line1"></h2>
       <h4 id="line2"></h4>
       <h4 id="line3"></h4>
@@ -70,25 +70,21 @@
       <h4><span class="toolname">Hoe</span>: use to harvest <span class="material">grass</span> and <span class="material">leaves</span>.</h4>
       <h4>This mini-game was developed in two days</h4>
     </div>
-    <div class="cloude-container">
-      <img class="cloud sml" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_sml.png" width="70" height="36" />
-      <img class="cloud med" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_med.png" width="100" height="52" />
-      <img class="cloud lrg" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_lrg.png" width="130" height="67" />
-      <img class="cloud smal" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_sml.png" width="84" height="44" />
-      <img class="cloud medi" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_med.png" width="120" height="62.4" />
-      <img class="cloud larg" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_lrg.png" width="195" height="100" />
-      <img class="cloud small" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_sml.png" width="91" height="47" />
-      <img class="cloud mediu" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_med.png" width="110" height="57.2" />
-      <img class="cloud large" src="http://www.dwuser.com/education/content/creating-keyframe-animations-with-css3/images/cloud_lrg.png" width="169" height="87" />
+    <div class="marquee">
+      <div class="clouds"><img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" /></div>
+      <div class="clouds"><img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" /></div>
+      <div class="clouds"><img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" /></div>
+      <div class="clouds"><img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" /></div>
+      <div class="clouds"><img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" /></div>
+      <div class="clouds"><img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" /></div>
     </div>
+    
     <section class="menu-buttons">
       <div class="back-container">
         <a href="#" class="back"><i class="fas fa-chevron-circle-up fa-3x"></i></a>
       </div>
+      <p class="title" style="font-size: large;">Music</p>
       <div class="music">
-        <div>
-          <p class="title" style="font-size: large;">Music</p>
-        </div>
         <div class="music-buttons">
           <button class="fas fa-plus" onclick="document.getElementById('player').volume += 0.1" aria-hidden="true" style="font-size: large;"></button>
           <button class="pause start"><i class="fas fa-pause" style="display: none; font-size: large;"></i></i><i class="fas fa-play" style="font-size: large;"></i></button>
@@ -105,13 +101,13 @@
             </div>
             <div class="tool-container">
               <button class="tool pickaxe"></button>
-              <p>PickAxe</p>
+              <p">PickAxe</p>
             </div>
           </div>
           <div class="right-col">
             <div class="tool-container">
               <button class="tool shovel"></button>
-              <p>Shovel</p>
+              <p >Shovel</p>
             </div>
             <div class="tool-container">
               <button class="tool hoe"></button>
@@ -119,9 +115,9 @@
             </div>
           </div>
         </div>
-        
       </div>
       <p class="title">Inventory</p>
+      
       <div class="inventory">
         <div class="left-col">
           <div class="item-container">
@@ -177,14 +173,13 @@
           </div>
         </div>
       </div>
+      <p class="title">Reset world</p>
       <div class="reset-container">
-        <p class="title">Reset world</p>
-        <button id="rst-btn" class="fa fa-refresh fa-lg" onclick="reset()"></button>
+        <button id="rst-btn" class="fa fa-refresh fa-2x" onclick="reset()"></button>
       </div>
      
     </section>
     <section class="game-screen" id="screen">
-      
     </section>
   </div>
   

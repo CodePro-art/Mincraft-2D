@@ -15,7 +15,7 @@ class Minecraft {
     this.width = width;
     this.trees = trees;
     this.bushes = bushes;
-    this.selectedTool ="";
+    this.selectedTool ="cursor-default";
     this.selectedItem ="";
     this.inventoryCounter ={
       dirt: 0,
@@ -110,6 +110,13 @@ function clearCursor(){
     box.classList.remove('cursor-hoe');
   });
 }
+
+function initiateCursor(){
+  tiles.forEach((box)=>{
+    box.classList.add('cursor-default');
+  });
+}
+
 // reset
 function reset(){
   document.getElementById('rst-btn').classList.add('rst');
@@ -121,12 +128,14 @@ function reset(){
 
 // cursor
 let tiles = document.querySelectorAll('.box');
+initiateCursor();
 tool.forEach((e)=>{
   e.addEventListener('click',()=>{
     if(e.classList.contains('axe')){
       game.selectedTool ="axe";
       tiles.forEach((box)=>{
         box.classList.add('cursor-axe');
+        box.classList.remove('cursor-default');
         box.classList.remove('cursor-pickaxe');
         box.classList.remove('cursor-shovel');
         box.classList.remove('cursor-hoe');
@@ -137,6 +146,7 @@ tool.forEach((e)=>{
       game.selectedTool ="pickaxe";
       tiles.forEach((box)=>{
         box.classList.add('cursor-pickaxe');
+        box.classList.remove('cursor-default');
         box.classList.remove('cursor-axe');
         box.classList.remove('cursor-shovel');
         box.classList.remove('cursor-hoe');
@@ -146,6 +156,7 @@ tool.forEach((e)=>{
       game.selectedTool ="shovel";
       tiles.forEach((box)=>{
         box.classList.add('cursor-shovel');
+        box.classList.remove('cursor-default');
         box.classList.remove('cursor-pickaxe');
         box.classList.remove('cursor-axe');
         box.classList.remove('cursor-hoe');
@@ -155,6 +166,7 @@ tool.forEach((e)=>{
       game.selectedTool ="hoe";
       tiles.forEach((box)=>{
         box.classList.add('cursor-hoe');
+        
         box.classList.remove('cursor-pickaxe');
         box.classList.remove('cursor-shovel');
         box.classList.remove('cursor-axe');
@@ -277,7 +289,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   typeLine();
 });
-
 
 
 
