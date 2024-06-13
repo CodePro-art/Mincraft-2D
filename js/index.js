@@ -40,6 +40,7 @@ class Minecraft {
         let box = document.createElement('button');
         box.classList.add('box');
         box.classList.add('cursor-default');
+        box.setAttribute('id',`btn-increment ${j}-${i}`);
         if(i<grass-1)
           box.classList.add('sky');
         if(i<grass && i>grass-4 && (j === 15))
@@ -198,61 +199,73 @@ tiles.forEach((box)=>{
   box.addEventListener('click',()=>{
     if(game.selectedTool === 'shovel'){
       if(box.classList.contains('ground')){
+        harvest(box)
         box.classList.remove('ground');
         game.inventoryCounter.dirt++;
-        console.log(game.inventoryCounter.dirt);
       }
       if(box.classList.contains('grass')){
+        harvest(box)
         box.classList.remove('grass');
         game.inventoryCounter.grass++;
       }    
     }
     if(game.selectedTool === 'axe'){
       if(box.classList.contains('leaves')){
+        harvest(box)
         box.classList.remove('leaves');
         game.inventoryCounter.grass++;
       }
       if(box.classList.contains('wood')){
+        harvest(box)
         box.classList.remove('wood');
         game.inventoryCounter.wood++;
       }
     }
     if(game.selectedTool === 'pickaxe'){
       if(box.classList.contains('gold')){
+        harvest(box)
         box.classList.remove('gold');
         game.inventoryCounter.gold++;
       }
       if(box.classList.contains('stone')){
+        harvest(box)
         box.classList.remove('stone');
         game.inventoryCounter.stone++;
       }
       if(box.classList.contains('silver')){
+        harvest(box)
         box.classList.remove('silver');
         game.inventoryCounter.silver++;
       }
       if(box.classList.contains('diamond')){
+        harvest(box)
         box.classList.remove('diamond');
         game.inventoryCounter.diamond++;
       }
     }
     if(game.selectedTool === 'hoe'){
       if(box.classList.contains('lava')){
+        harvest(box)
         box.classList.remove('lava');
         game.inventoryCounter.coal++;
       }
       if(box.classList.contains('stone')){
+        harvest(box)
         box.classList.remove('stone');
         game.inventoryCounter.brick++;
       }
       if(box.classList.contains('water')){
+        harvest(box)
         box.classList.remove('water');
         game.inventoryCounter.ice++;
       }
       if(box.classList.contains('ground')){
+        harvest(box)
         box.classList.remove('ground');
         game.inventoryCounter.sand++;
       }
       if(box.classList.contains('sand')){
+        harvest(box)
         box.classList.remove('sand');
         game.inventoryCounter.glass++;
       }
@@ -323,11 +336,76 @@ function hideMediaPlayer() {
   video.currentTime = 0; // Reset the video to the beginning
 }
 
+// hide and show leadboard
+function showLeadboard() {
+  let leadboard = document.querySelector('.leadboard')
+  leadboard.style.display = 'flex';
+  setTimeout(() => {
+    leadboard.classList.add('show');
+    leadboard.classList.remove('hide');
+  }, 10); // Slight delay to ensure the display property is set before adding the class
+  leadboard.style.display = 'flex';
+}
+
+function hideLeadboard() {
+  let leadboard = document.querySelector('.leadboard');
+  leadboard.classList.add('hide');
+}
+
 // Event listener for keydown event
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape') {
     hideMediaPlayer();
+    hideLeadboard();
   }
 });
 
 
+// Minimize Instructions section
+document.addEventListener('DOMContentLoaded', function() {
+  var minimizeButtons = document.querySelectorAll('.minimize');
+  var maximizeButtons = document.querySelectorAll('.maximize');
+  
+  minimizeButtons.forEach(function(button) {
+      button.addEventListener('click', minimize);
+  });
+  
+  maximizeButtons.forEach(function(button) {
+      button.addEventListener('click', maximize);
+  });
+});
+
+function minimize() {
+  document.body.classList.add('minimized');
+}
+
+function maximize() {
+  document.body.classList.remove('minimized');
+}
+
+// Add +1 Effect to buttons
+function harvest(box) {
+  box.classList.add("plus-one")
+  box.innerText = "+1"
+  box.classList.remove("hidden")
+    
+  setTimeout(() => {
+    box.classList.remove("plus-one")
+    box.classList.add("hidden")
+    box.innerText = ""
+  }, 500)
+}
+
+// Tooltip for buttons
+document.getElementById('infoButton').addEventListener('click', function() {
+  var tooltip = document.getElementById('tooltip');
+  tooltip.style.display = (tooltip.style.display === 'none' || tooltip.style.display === '') ? 'flex' : 'none';
+
+  setTimeout(function() {
+    tooltip.style.display = (tooltip.style.display === 'none' || tooltip.style.display === '') ? 'flex' : 'none';
+    setTimeout(function() {
+      if (tooltip.style.display !== 'none' || tooltip.style.display !== '')
+        tooltip.style.display = tooltip.style.display = 'none';
+    }, 100); 
+  }, 1000);
+});

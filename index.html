@@ -35,6 +35,55 @@
       </video>
     </div>
 
+    <!-- Leadboard -->
+    <div class="leadboard">
+      <div id="lead-header">
+        <h1>Ranking</h1>
+        <div class="tooltip-container">
+          <button class="share" id="infoButton">
+            <i class="fas fa-share-alt"></i>
+            <div id="tooltip" class="tooltip">Sorry, this application is not available yet...<br>Please wait for the upcoming update!</div>
+          </button>
+        </div>
+      </div>
+      <div id="leaderboard">
+        <div class="ribbon"></div>
+        <table>
+          <tr>
+            <td class="number">1</td>
+            <td class="name">Netanel Mazuz</td>
+            <td class="points">
+              258.244 <img class="gold-medal" src="./img/gold-medal.png" alt="gold medal"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="number">2</td>
+            <td class="name">Lee Bilu</td>
+            <td class="points">258.242</td>
+          </tr>
+          <tr>
+            <td class="number">3</td>
+            <td class="name">Roy Pick</td>
+            <td class="points">258.223</td>
+          </tr>
+          <tr>
+            <td class="number">4</td>
+            <td class="name">Shirly Tal</td>
+            <td class="points">258.212</td>
+          </tr>
+          <tr>
+            <td class="number">5</td>
+            <td class="name">Eytan Pohoriles</td>
+            <td class="points">258.208</td>
+          </tr>
+        </table>
+        <div id="buttons">
+          <button class="exit" onclick="hideLeadboard()">Exit</button>
+          <button class="continue"  onclick="hideLeadboard()">Continue</button>
+        </div>
+      </div>
+    </div>
+
     <audio id="player" src="./audio/bensound-adventure.mp3"></audio>
     <div class="container">
       <div class="volume">
@@ -45,17 +94,18 @@
       
       <!-- Minecraft trailer -->
       <div class="media-player">
-        <button class="close-btn" onclick="hideMediaPlayer()">X</button>
+        <h1 class="trailer-title">Minecraft Official Trailer</h1>
+        <button class="close-btn close" onclick="hideMediaPlayer()">X</button>
         <video id="minecraftTrailer" poster="https://wallpapercave.com/wp/wp5961273.jpg" width="1920" height="1080" controls>
           <source src="./video/Official Minecraft Trailer.mp4"  id="blurred" type="video/mp4">
         </video>
       </div>
       
       <div class="hex-row-wrapper">
-        <a href="#wrapper-2" class="hexagon one" data-type="games" onclick="showMediaPlayer()"><i class="fa fa-gamepad fa-3" id="hex" data-hover-text="Play"></i></a>
+        <a href="#wrapper-2" class="hexagon one" data-type="games""><i class="fa fa-gamepad fa-3" id="hex" data-hover-text="Play"></i></a>
         <a href="#" class="hexagon two" data-type="desktop" onclick="showMediaPlayer()"><i class="fa fa-television" id="hex" data-hover-text="Screen"></i></a>
         <a href="#" class="hexagon three" data-type="controls"><i class="fa fa-keyboard-o" id="hex" data-hover-text="Keyboard"></i></a>
-        <a href="#" class="hexagon four" data-type="profile"><i class="fa fa-user" id="hex" data-hover-text="Leadboard"></i></a>
+        <a href="#" class="hexagon four" data-type="profile" onclick="showLeadboard()"><i class="fa fa-user" id="hex" data-hover-text="Leadboard"></i></a>
         <a href="#" class="hexagon five selected" data-type="search"><i class="fa fa-globe" id="hex" data-hover-text="Internet"></i></a>
         <botton class="hexagon six" data-type="music" ><i class="fa fa-music" id="hex" data-hover-text="Music"></i></botton>
       </div>
@@ -68,18 +118,25 @@
   </div>
 
   <div class="wrapper" id="wrapper-2" style="display: none;">
-    <div id="instructions">
-      <br><h2>Instructions</h2></br>
-      <h4>1. Choose a harvesting tool from your tool box.</h4>
-      <h4>2. Each tool can be used to harvest specific elements in the game.</h4>
-      <h4>3. Harvested elements can be found in your inventory and can be used to creat surprizing new materials.</h4>
-      <h4>4. Use the reset button to start over.</h4>
-      <h4>5. Use the music buttons to control the volume of the background music.</h4></br>
-      <h4><span class="toolname">Pickaxe</span>: use to mine <span class="material">stone</span> and other minerals.</h4>
-      <h4><span class="toolname">Axe</span>: use to break <span class="material">wood</span> and <span class="material">trees</span>.</h4>
-      <h4><span class="toolname">Shovel</span>: use to pick up <span class="material">dirt</span>, <span class="material">ground</span>, <span class="material">snow</span>, etc.</h4>
-      <h4><span class="toolname">Hoe</span>: use to harvest <span class="material">grass</span> and <span class="material">leaves</span>.</h4></br>
-      <h4>This mini-game was developed in two days work</h4>
+    <div class="window">
+      <nav class="window-controls">
+        <div class="maximize">Instructions</div>
+        <div class="close"></div>
+        <div class="minimize"></div>
+      </nav>
+      <section class="window-content">
+        <br><p>Instructions</p></br>
+        <p>1. Choose a harvesting tool from your tool box.</p>
+        <p>2. Each tool can be used to harvest specific elements in the game.</p>
+        <p>3. Harvested elements can be found in your inventory and can be used to creat surprizing new materials.</p>
+        <p>4. Use the reset button to start over.</p>
+        <p>5. Use the music buttons to control the volume of the background music.</p></br>
+        <p><span class="toolname">Pickaxe</span>: use to mine <span class="material">stone</span> and other minerals.</p>
+        <p><span class="toolname">Axe</span>: use to break <span class="material">wood</span> and <span class="material">trees</span>.</p>
+        <p><span class="toolname">Shovel</span>: use to pick up <span class="material">dirt</span>, <span class="material">ground</span>, <span class="material">snow</span>, etc.</p>
+        <p><span class="toolname">Hoe</span>: use to harvest <span class="material">grass</span> and <span class="material">leaves</span>.</p></br>
+        <p>This mini-game was developed in two days work</p>
+      </section>
     </div>
     <div class="marquee">
       <div class="clouds"><img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" /></div>
@@ -92,7 +149,7 @@
     
     <section class="menu-buttons">
       <div class="back-container">
-        <a href="#" class="back"><i class="fas fa-chevron-circle-up fa-3x"></i></a>
+        <a href="#wrapper-1" class="back"><i class="fas fa-chevron-circle-up fa-3x"></i></a>
       </div>
       <p class="title" style="font-size: large;">MUSIC</p>
       <div class="music">
