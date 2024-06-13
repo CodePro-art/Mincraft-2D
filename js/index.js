@@ -15,7 +15,7 @@ class Minecraft {
     this.width = width;
     this.trees = trees;
     this.bushes = bushes;
-    this.selectedTool ="";
+    this.selectedTool ="cursor-default";
     this.selectedItem ="";
     this.inventoryCounter ={
       dirt: 0,
@@ -39,6 +39,7 @@ class Minecraft {
       for(let j=0; j<cols ;j++){
         let box = document.createElement('button');
         box.classList.add('box');
+        box.classList.add('cursor-default');
         if(i<grass-1)
           box.classList.add('sky');
         if(i<grass && i>grass-4 && (j === 15))
@@ -82,6 +83,9 @@ class Minecraft {
     screen.setAttribute("id","screen");
     map.appendChild(screen);
     this.initialize();
+    tiles.forEach((box)=>{
+      box.classList.add('cursor-default');
+    });
   }
 }
 
@@ -305,8 +309,25 @@ document.addEventListener("DOMContentLoaded", function() {
   typeLine();
 });
 
+function showMediaPlayer() {
+  mediaPlayerContainer = document.querySelector('.media-player')
+  mediaPlayerContainer.style.display = 'flex';
+}
 
+function hideMediaPlayer() {
+  const mediaPlayerContainer = document.querySelector('.media-player');
+  const video = document.getElementById('minecraftTrailer');
 
+  mediaPlayerContainer.style.display = 'none';
+  video.pause(); // Pause the video when hiding the media player
+  video.currentTime = 0; // Reset the video to the beginning
+}
 
+// Event listener for keydown event
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    hideMediaPlayer();
+  }
+});
 
 

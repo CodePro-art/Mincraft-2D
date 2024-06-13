@@ -24,7 +24,10 @@
       <h4 id="line3"></h4>
       <h4 id="line4"></h4>
     </header>
-
+    
+    <div class="text-container">
+      <span>SCOREBOARD</span>
+    </div>
     <div class="video-background">
       <video autoplay loop muted id="background-video">
           <source src="video/Minecraft Soothing Scenes – Relaxing Beach Escape .mp4" type="video/mp4">
@@ -39,9 +42,18 @@
         <input type="checkbox" class="checkbox">
         <button class="fa fa-caret-down fa-2x" onclick="document.getElementById('player').volume -= 0.1" aria-hidden="true"></button>
       </div>
+      
+      <!-- Minecraft trailer -->
+      <div class="media-player">
+        <button class="close-btn" onclick="hideMediaPlayer()">X</button>
+        <video id="minecraftTrailer" poster="https://wallpapercave.com/wp/wp5961273.jpg" width="1920" height="1080" controls>
+          <source src="./video/Official Minecraft Trailer.mp4"  id="blurred" type="video/mp4">
+        </video>
+      </div>
+      
       <div class="hex-row-wrapper">
-        <a href="#wrapper-2" class="hexagon one" data-type="games"><i class="fa fa-gamepad fa-3" id="hex" data-hover-text="Play"></i></a>
-        <a href="#" class="hexagon two" data-type="desktop"><i class="fa fa-television" id="hex" data-hover-text="Screen"></i></a>
+        <a href="#wrapper-2" class="hexagon one" data-type="games" onclick="showMediaPlayer()"><i class="fa fa-gamepad fa-3" id="hex" data-hover-text="Play"></i></a>
+        <a href="#" class="hexagon two" data-type="desktop" onclick="showMediaPlayer()"><i class="fa fa-television" id="hex" data-hover-text="Screen"></i></a>
         <a href="#" class="hexagon three" data-type="controls"><i class="fa fa-keyboard-o" id="hex" data-hover-text="Keyboard"></i></a>
         <a href="#" class="hexagon four" data-type="profile"><i class="fa fa-user" id="hex" data-hover-text="Leadboard"></i></a>
         <a href="#" class="hexagon five selected" data-type="search"><i class="fa fa-globe" id="hex" data-hover-text="Internet"></i></a>

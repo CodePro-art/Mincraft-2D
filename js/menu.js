@@ -13,40 +13,80 @@ let arrowRight = document.querySelector('.arrow-right'),
 //movenment controls
 function moveRight() {
   clearTimeout(debounce);
-  debounce = setTimeout(function(){
-    menuAngle += 60;
-    iconAngle -= 60;
-    //rotate icon
-    for(let i = 0; i < icons.length; i ++){
-      icons[i].setAttribute("style", 'transform: rotate(' + iconAngle + 'deg);');
-    }
-    //rotate menu
-    hexWrapper.setAttribute("style", 'transform: rotate(' + menuAngle + 'deg);' );
-    // Select next item
-    let selected = document.querySelector('.selected');
-    selected.classList.remove('selected');
-    selected.classList.contains('one') ? selected.parentElement.lastElementChild.classList.add('selected') : selected.previousElementSibling.classList.add('selected');
-  },delay)
-};
+  debounce = setTimeout(function() {
+      menuAngle += 60;
+      iconAngle -= 60;
+      // rotate icon
+      for (let i = 0; i < icons.length; i++) {
+          icons[i].setAttribute("style", 'transform: rotate(' + iconAngle + 'deg);');
+      }
+      // rotate menu
+      hexWrapper.setAttribute("style", 'transform: rotate(' + menuAngle + 'deg);');
+      // Select next item
+      let selected = document.querySelector('.selected');
+      selected.classList.remove('selected');
+      let newSelected;
+      if (selected.classList.contains('one')) {
+          newSelected = selected.parentElement.lastElementChild;
+      } else {
+          newSelected = selected.previousElementSibling;
+      }
+      newSelected.classList.add('selected');
+      // Update the h2 content
+      updateCurrentAction(newSelected);
+  }, delay);
+}
 
 function moveLeft() {
   clearTimeout(debounce);
-  debounce = setTimeout(function(){
-    menuAngle -= 60;
-    iconAngle += 60;
-      //rotate icon
-      for(let i = 0; i < icons.length; i ++){
-        icons[i].setAttribute("style", 'transform: rotate(' + iconAngle + 'deg);');
+  debounce = setTimeout(function() {
+      menuAngle -= 60;
+      iconAngle += 60;
+      // rotate icon
+      for (let i = 0; i < icons.length; i++) {
+          icons[i].setAttribute("style", 'transform: rotate(' + iconAngle + 'deg);');
       }
-      //rotate menu
-      hexWrapper.setAttribute("style", 'transform: rotate(' + menuAngle + 'deg);' );
+      // rotate menu
+      hexWrapper.setAttribute("style", 'transform: rotate(' + menuAngle + 'deg);');
       // Select the current
       let selected = document.querySelector('.selected');
       selected.classList.remove('selected');
-      selected.classList.contains('six') ? selected.parentElement.firstElementChild.classList.add('selected') : selected.nextElementSibling.classList.add('selected');
+      let newSelected;
+      if (selected.classList.contains('six')) {
+          newSelected = selected.parentElement.firstElementChild;
+      } else {
+          newSelected = selected.nextElementSibling;
+      }
+      newSelected.classList.add('selected');
+      // Update the h2 content
+      updateCurrentAction(newSelected);
   }, delay);
-};
-  
+}
+function updateCurrentAction(selectedElement) {
+  const selected = document.querySelector('.selected');
+  const index = Array.from(selectedElement.parentElement.children).indexOf(selectedElement);
+  const actions = ["PLAY", "TRAILER", "SHORTCUTS", "LOGIN","SCOREBOARD", "MUSIC"];
+  const action = selected.innerHTML;
+  const textContainer = document.querySelector('.text-container');
+  textContainer.innerHTML = `<span>${actions[index]}</span>`;
+  startAnimation();
+  stopAnimation();
+}
+
+function startAnimation() {
+  const textSpans = document.querySelectorAll('.text-container span');
+  textSpans.forEach(span => {
+    span.classList.add('move-up');
+  });
+}
+
+function stopAnimation() {
+  const textSpans = document.querySelectorAll('.text-container span');
+  textSpans.forEach(span => {
+    span.classList.remove('move-up');
+  });
+}
+
 // Enter selected
 function enterSelected() {
   let selected = document.querySelector('.selected');
