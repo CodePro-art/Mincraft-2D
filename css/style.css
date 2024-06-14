@@ -604,9 +604,14 @@ input[type="range"]::-ms-thumb {
   width: 100vw;
   background-image: radial-gradient(circle at center in hsl longer hue, rgb(0, 0, 0) 0, rgb(87, 87, 87), rgb(0, 0, 0) 100%);
   z-index: 9999;
-  transition: opacity 1s;
-  animation: fadeIn 1s;
   display: none;
+}
+.media-player.show {
+  animation: fadeIn 1s ease-out;
+}
+
+.media-player.hide {
+  animation: fadeOut 1s ease-out;
 }
 #minecraftTrailer{
   border-radius: 10px;
@@ -635,6 +640,16 @@ input[type="range"]::-ms-thumb {
   to {
     display: flex; 
     opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from { 
+    opacity: 1;
+    display: flex; 
+  }
+  to {
+    opacity: 0;
+    display: none; 
   }
 }
 .plus-one {
@@ -673,7 +688,7 @@ input[type="range"]::-ms-thumb {
   top: 27vh;
   left: 87vw;
   width: 550px;
-  min-height: 600px;
+  min-height: 650px;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 4px;
