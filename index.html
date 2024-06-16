@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="./css/menu.css">
   <link rel="stylesheet" href="./css/clouds.css">
   <link rel="stylesheet" href="./css/keypad.css">
-  <link rel="stylesheet" href="./css/forms.css">
   <link rel="stylesheet" href="./css/options.css">
   <title>Minecraft 2D</title>
   
@@ -172,9 +171,7 @@
           <tr>
             <td class="number">1</td>
             <td class="name">Netanel Mazuz</td>
-            <td class="points">
-              258,244 <img class="gold-medal" src="./img/gold-medal.png" alt="gold medal"/>
-            </td>
+            <td class="points"> 258,244 <img class="gold-medal" src="assets/img/svg/gold-medal.png" alt="gold medal"/></td>
           </tr>
           <tr>
             <td class="number">2</td>
@@ -204,7 +201,7 @@
       </div>
     </div>
 
-    <audio id="player" src="./audio/bensound-adventure.mp3"></audio>
+    <audio id="player" src="assets/audio/bensound-adventure.mp3"></audio>
     <div class="container">
       <div class="volume">
         <button class="fa fa-caret-up fa-2x" onclick="document.getElementById('player').volume += 0.1" aria-hidden="true"></button>
@@ -216,7 +213,7 @@
       <div class="media-player">
         <h1 class="trailer-title">Minecraft Official Trailer</h1>
         <button class="close-btn close" onclick="hideMediaPlayer()">X</button>
-        <video id="minecraftTrailer" poster="./img/bg/poster.png" width="1920" height="1080" controls>
+        <video id="minecraftTrailer" poster="./assets/img/bg/poster.png" width="1920" height="1080" controls>
           <source src="assets/video/Official Minecraft Trailer.mp4"  id="blurred" type="video/mp4">
         </video>
       </div>
@@ -470,7 +467,7 @@
   </div>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./js/index.js"></script>
+  <script src="./js/game.js"></script>
   <script src="./js/menu.js"></script>
   <script src="./js/keypad.js"></script>
   <script src="./js/instructions.js"></script>
