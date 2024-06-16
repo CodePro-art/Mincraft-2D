@@ -5,7 +5,7 @@
   
   /* options page transition */
 .options{
-    background: url("../img/poster.png") no-repeat center;
+    background: url("../img/poster.png") no-repeat center center / cover;
     height: 100vh;
     width: 100vw;
     position: absolute;

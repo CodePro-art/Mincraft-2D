@@ -29,13 +29,12 @@
     <section>  
       <img class="options-logo" src="https://cdn.worldvectorlogo.com/logos/minecraft.svg" alt="Minecraft Logo" width="900" height="120">
       <table>  
-        <tr><div class="big">Singleplayer</div></tr>
-        <tr><div class="big">Multiplayer</div></tr>
-        <tr><div class="big random-map" onclick="toggleGenerationMode()">Random Map: <span class="map-generation">OFF</span></div></tr>
-        <br><br>
+        <tr><td class="big">Singleplayer</td></tr>
+        <tr><td class="big">Multiplayer</td></tr>
+        <tr><td class="big random-map" onclick="toggleGenerationMode()">Random Map: <span class="map-generation">OFF</span></td></tr>
         <tr>
-          <a class="small" onclick="changePage('.main')">Back</a><a style="opacity:0" >2</a>
-          <a class="small save" onclick="saveSettings()">Save Setttings</a>
+          <td><a class="small" onclick="changePage('.main')">Back</a><a style="opacity:0" >2</a></td>
+          <td><a class="small" onclick="saveSettings()">Save Setttings</a></td>
         </tr>
       </table>
       <p class="bubble thought" id="thought">
@@ -217,7 +216,7 @@
       <div class="media-player">
         <h1 class="trailer-title">Minecraft Official Trailer</h1>
         <button class="close-btn close" onclick="hideMediaPlayer()">X</button>
-        <video id="minecraftTrailer" poster="./img/poster.png" width="1920" height="1080" controls>
+        <video id="minecraftTrailer" poster="./img/bg/poster.png" width="1920" height="1080" controls>
           <source src="./video/Official Minecraft Trailer.mp4"  id="blurred" type="video/mp4">
         </video>
       </div>
@@ -471,7 +470,7 @@
   </div>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./js/game.js"></script>
+  <script src="./js/index.js"></script>
   <script src="./js/menu.js"></script>
   <script src="./js/keypad.js"></script>
   <script src="./js/instructions.js"></script>
