@@ -86,6 +86,10 @@
   margin-top: 53px;
 }
 
+.fa {
+  z-index: 999;
+}
+
 .active {
   position: absolute;
   width: 102px;

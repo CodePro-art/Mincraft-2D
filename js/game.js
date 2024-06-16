@@ -2,15 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const rows = 20;
   const cols = 25;
   const grass = rows - 6;
+  const snow = rows - 6;
+  const road = rows - 6;
   const ground = rows - 5;
   const lava = rows - 1;
+  const water = rows - 1;
   const screen = document.querySelector('.game-screen');
   const tools = document.querySelectorAll('.tool');
   const inventory = document.querySelectorAll('.inv');
 
   // Define the actions and inventory updates for each tool
   const toolActions = {
-    shovel: { ground: 'dirt', grass: 'grass', sand: 'glass' },
+    shovel: { ground: 'dirt', grass: 'grass', sand: 'glass', snow: 'snow', road: 'stone'},
     axe: { bush: 'grass', leaves: 'grass', wood: 'wood' },
     pickaxe: { gold: 'gold', stone: 'stone', silver: 'silver', diamond: 'diamond' },
     hoe: { lava: 'coal', stone: 'brick', water: 'ice' },
@@ -26,6 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
     default: { selectedClass: 'cursor-default', toolClass: 'default' }
   };
 
+  // Define the Minecraft theme
+  const theme = {
+    liquid: { lava: 'lava', water: 'water' },
+    ground: { ground: 'ground', sand: 'sand', gold: 'gold', silver: 'silver', stone: 'stone' },
+    mineral: { diamond: 'diamond', coal: 'coal', brick: 'brick', ice: 'ice', glass: 'glass'},
+    plant: { grass: 'grass', bush: 'bush', leaves: 'leaves', wood: 'wood' },
+    snow: { snow: 'snow' },
+    road: { road: 'road' }
+  };
+
   class Minecraft {
     constructor() {
       this.selectedTool = "cursor-default";
@@ -37,11 +50,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize the game world
     initialize() {
+      this.generateMap();
+
+      const tiles = document.querySelectorAll('.box');
+
+      // Assign event listeners to each tool
+      tools.forEach(tool => { tool.addEventListener('click', () => { Object.keys(toolBox).forEach(toolName => {  if (tool.classList.contains(toolBox[toolName].toolClass)) selectTool(toolName, tiles)})})});
+      // Assign event listeners to each tile
+      tiles.forEach(box => box.addEventListener('click', () => handleBoxClick(box)));
+
+      // Clear cursor on Escape key press
+      document.body.addEventListener("keydown", event => {
+        if (event.key === 'Escape'){
+          clearCursorToDefault(tiles);
+          hideLeadboard();
+          hideMediaPlayer();
+        }
+        });
+
+      // Reset map on reset button click
+      document.getElementById('rst-btn').addEventListener('click', () => game.resetMap());
+    }
+
+    // Function to generate a specific map
+    generateMap() {
       for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
-          const box = document.createElement('button');
-          box.classList.add('box', 'cursor-default');
-          box.id = `btn-${j}-${i}`;
+          const box = this.newTile(i,j);
 
           // Define the various tile types based on their positions
           if (i < grass - 1) box.classList.add('sky');
@@ -55,46 +90,32 @@ document.addEventListener("DOMContentLoaded", () => {
             box.classList.add((j % 12 === 0 && i === ground + 1) ? 'silver' : 'ground');
           }
           if (i === rows - 1) box.classList.add('lava');
-
-          box.dataset.row = j;
-          box.dataset.col = i;
           screen.appendChild(box);
 
           setTimeout(() => box.classList.add("animate"), (i + j) * 60);
         }
       }
+    }
+    
+    // Function to create button
+    newTile(row, col) {
+      const box = document.createElement('button');
+      box.classList.add('box', 'cursor-default');
+      box.dataset.row = row;
+      box.dataset.col = col;
+      return box;
+    }
 
-      const tiles = document.querySelectorAll('.box');
-
-      // Assign event listeners to each tool
-      tools.forEach(tool => {
-        tool.addEventListener('click', () => {
-          Object.keys(toolBox).forEach(toolName => {  if (tool.classList.contains(toolBox[toolName].toolClass)) selectTool(toolName, tiles)});
-        });
-      });
-
-      // Clear cursor on Escape key press
-      document.body.addEventListener("keydown", event => {
-        if (event.key === 'Escape'){
-          clearCursorToDefault(tiles);
-          hideLeadboard();
-          hideMediaPlayer();
-        }
-        });
-
-      // Assign event listeners to each tile
+    // Function to generate a random map
+    generateRandomMap() {
       
-      tiles.forEach(box => box.addEventListener('click', () => handleBoxClick(box)));
+    }
 
-      // Reset map on reset button click
-      document.getElementById('rst-btn').addEventListener('click', () => game.resetMap());
-        }
-
-        // Reset the game map
-        resetMap() {
-          screen.innerHTML = '';
-          this.initialize();
-        }
+    // Reset the game map
+    resetMap() {
+      screen.innerHTML = '';
+      this.initialize();
+    }
   }
 
   // Initialize the game instance
@@ -170,4 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
       tooltip.style.display = 'none';
     }, 1100); // Total delay of 1.1 seconds
   });
+
+  
 });
