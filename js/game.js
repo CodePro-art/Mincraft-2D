@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
       box.innerText = "";
     }, 500);
   }
-
+  
   // Tooltip toggle for info button
   document.getElementById('infoButton').addEventListener('click', () => {
     const tooltip = document.getElementById('tooltip');

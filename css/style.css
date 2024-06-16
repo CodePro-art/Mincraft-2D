@@ -24,7 +24,7 @@
   --container_color: #ffc878;
   --menu_color: #ffc878;
   --menu_dark: #775201;
-  --initial-rotation: 0deg;
+  --initial-rotation: -60deg;
 }
 /* Change cursor to pointer when hovering over video controls */
 video::-webkit-media-controls-play-button,
@@ -196,49 +196,44 @@ header {
   border: none;
   animation: pop 0.3s linear 1;
 }
-@keyframes pop {
-  50% {
-      transform: scale(1.4);
- }
-}
 .inv-dirt{
-  background: url(../img/inv-dirt.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-dirt.png) no-repeat center center / cover;
 }
 .inv-brick{
-  background: url(../img/inv-brick.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-brick.png) no-repeat center center / cover;
 }
 .inv-coal{
-  background: url(../img/inv-coal.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-coal.png) no-repeat center center / cover;
 }
 .inv-ice{
-  background: url(../img/inv-ice.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-ice.png) no-repeat center center / cover;
 }
 .inv-gold{
-  background: url(../img/inv-gold.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-gold.png) no-repeat center center / cover;
 }
 .inv-grass{
-  background: url(../img/inv-grass.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-grass.png) no-repeat center center / cover;
 }
 .inv-diamond{
-  background: url(../img/inv-diamond.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-diamond.png) no-repeat center center / cover;
 }
 .inv-glass{
-  background: url(../img/inv-glass.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-glass.png) no-repeat center center / cover;
 }
 .inv-sand{
-  background: url(../img/inv-sand.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-sand.png) no-repeat center center / cover;
 }
 .inv-snow{
-  background: url(../img/inv-snow.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-snow.png) no-repeat center center / cover;
 }
 .inv-stone{
-  background: url(../img/inv-stone.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-stone.png) no-repeat center center / cover;
 }
 .inv-wood{
-  background: url(../img/inv-wood.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-wood.png) no-repeat center center / cover;
 }
 .inv-silver{
-  background: url(../img/inv-silver.png) no-repeat center center / cover;
+  background: url(../img/inventory/inv-silver.png) no-repeat center center / cover;
 }
 /* tools */
 .tools {
@@ -258,16 +253,16 @@ header {
   cursor: url(../img/cursors/pointer.cur), auto;
 }
 .axe{
-  background: url(../img/axe.png) no-repeat center center / cover;
+  background: url(../img/tools/axe.png) no-repeat center center / cover;
 }
 .pickaxe{
-  background: url(../img/pickaxe.png) no-repeat center center / cover;
+  background: url(../img/tools/pickaxe.png) no-repeat center center / cover;
 }
 .shovel{
-  background: url(../img/shovel.png) no-repeat center center / cover;
+  background: url(../img/tools/shovel.png) no-repeat center center / cover;
 }
 .hoe{
-  background: url(../img/hoe.png) no-repeat center center / cover;
+  background: url(../img/tools/hoe.png) no-repeat center center / cover;
 }
 .tool-container, .item-container{
   display: flex;
@@ -311,12 +306,16 @@ header {
 }
 .fa-refresh {
   border-radius: 50%;
+  color: #fff;
   height: 50px;
   width: 50px;
   margin-top: 10px;
-  border: 1px solid black;
-  background-color: white;
+  border: 2px solid var(--menu_dark);
+  background-color: goldenrod;
   cursor: url(../img/cursors/pointer.cur), auto;
+}
+.fa-refresh:hover{
+  animation: pop 0.3s linear 1;
 }
 .rst {
   -webkit-animation: spin 0.2s ease-in-out;
@@ -325,22 +324,7 @@ header {
   animation-fill-mode: forwards;
   cursor: url(../img/cursors/pointer.cur), auto;
 }
-@-moz-keyframes spin {
-  100% {
-      -moz-transform: rotate(360deg);
- }
-}
-@-webkit-keyframes spin {
-  100% {
-      -webkit-transform: rotate(360deg);
- }
-}
-@keyframes spin {
-  100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
- }
-}
+
 .tools-cols {
   display: flex;
   flex-direction: row;
@@ -446,43 +430,43 @@ header {
 }
 /* special tiles */
 .ground {
-  background: url(../img/gnd.jpg) no-repeat center center / cover;
+  background: url(../img/tiles/gnd.jpg) no-repeat center center / cover;
 }
 .wood{
-  background: url(../img/wood.jpg) no-repeat center center / cover;
+  background: url(../img/tiles/wood.jpg) no-repeat center center / cover;
 }
 .water{
-  background: url(../img/water.jpg) no-repeat center center / cover;
+  background: url(../img/tiles/water.jpg) no-repeat center center / cover;
 }
 .metal{
-  background: url(../img/metal.jpg) no-repeat center center / cover;
+  background: url(../img/tiles/metal.jpg) no-repeat center center / cover;
 }
 .lava{
-  background: url(../img/lava.jpg) no-repeat center center / cover;
+  background: url(../img/tiles/lava.jpg) no-repeat center center / cover;
 }
 .ice{
-  background: url(../img/ice.jpg) no-repeat center center / cover;
+  background: url(../img/tiles/ice.jpg) no-repeat center center / cover;
 }
 .leaves{
-  background: url(../img/leaves.jpg) no-repeat center center / cover;
+  background: url(../img/tiles/leaves.jpg) no-repeat center center / cover;
 }
 .grass{
-  background: url(../img/grass.jpg) no-repeat top center / cover;
+  background: url(../img/tiles/grass.jpg) no-repeat top center / cover;
 }
 .bush{
-  background: url(../img/bush.jpg) no-repeat top center / cover;
+  background: url(../imgtiles//bush.jpg) no-repeat top center / cover;
 }
 .gold{
-  background: url(../img/gold.jpg) no-repeat top center / cover;
+  background: url(../img/tiles/gold.jpg) no-repeat top center / cover;
 }
 .silver{
-  background: url(../img/silver.jpg) no-repeat top center / cover;
+  background: url(../img/tiles/silver.jpg) no-repeat top center / cover;
 }
 .diamond{
-  background: url(../img/diamond.jpg) no-repeat top center / cover;
+  background: url(../img/tiles/diamond.jpg) no-repeat top center / cover;
 }
 .stone{
-  background: url(../img/stone.jpg) no-repeat top center / cover;
+  background: url(../img/tiles/stone.jpg) no-repeat top center / cover;
 }
 .tool.selected{
   border: 2px solid #000000;
@@ -593,14 +577,6 @@ input[type="range"]::-ms-thumb {
   height: 2.3rem;
   color: rgb(255, 255, 255);
 }
-@keyframes moveUp {
-  0% {
-      transform: translateY(0);
- }
-  100% {
-      transform: translateY(-3.2rem);
- }
-}
 .media-player{
   position: fixed;
   top: 0;
@@ -660,17 +636,6 @@ input[type="range"]::-ms-thumb {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   z-index: 999;
-}
-
-@keyframes translation {
-  from {
-    top: 0;
-    opacity: 100%;
-  }
-  to {
-    opacity: 0%;
-    top: -10em;
-    }
 }
 
 .window {
@@ -1085,9 +1050,6 @@ td {
   animation: slide-out-up 0.5s ease-out;
 }
 
-/* window animation instruction */
-/*// Glow Border Animation //*/
-
 .border, .border-glow{
   height: 100%;
   width: 100%;
@@ -1124,12 +1086,9 @@ td {
 	z-index: -1;
 	left: 5px;
 	top: 5px;
-  /* double the px from the border width left */
 	width: calc(100% - 10px);
 	height: calc(100% - 10px);
-  /*bg color*/
 	background: #292a2e;
-  /*box border radius*/
 	border-radius: 7px;
 }
 
@@ -1138,9 +1097,8 @@ td {
 }
 
 .fa-music:hover {
-  transform-origin: center;
-  transform: rotate(var(--initial-rotation));
   animation: arrows-alt 1s cubic-bezier(.36,.07,.57,.99) infinite;
+  transform-origin: center;
 }
 
 .fa-gamepad:hover {
@@ -1165,6 +1123,21 @@ td {
 
 
 /* ANIMATIONS */
+@-moz-keyframes spin {
+  100% {-moz-transform: rotate(360deg);}
+}
+@-webkit-keyframes spin {
+  100% {-webkit-transform: rotate(360deg);}
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+ }
+}
+@keyframes pop {
+  50% {transform: scale(1.4);}
+}
 @keyframes fadeIn {
   from { 
     opacity: 0;
@@ -1184,6 +1157,20 @@ td {
     opacity: 0;
     display: none; 
   }
+}
+@keyframes translation {
+  from {
+    top: 0;
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+    top: -10em;
+    }
+}
+@keyframes moveUp {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-3.2rem);}
 }
 @keyframes rotate {
 	100% {transform: translate(-50%, -50%) rotate(1turn);}
