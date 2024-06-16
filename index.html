@@ -14,16 +14,42 @@
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <script src="https://unpkg.com/tippy.js@6"></script>
   <script src="https://kit.fontawesome.com/5a1dafc887.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/menu.css">
   <link rel="stylesheet" href="./css/clouds.css">
   <link rel="stylesheet" href="./css/keypad.css">
   <link rel="stylesheet" href="./css/forms.css">
+  <link rel="stylesheet" href="./css/options.css">
   <title>Minecraft 2D</title>
   
 </head>
 <body>
-  <div class="wrapper" id="wrapper-1">
+  <div class="wrapper page options hidden">
+    <section>  
+      <img class="options-logo" src="https://cdn.worldvectorlogo.com/logos/minecraft.svg" alt="Minecraft Logo" width="900" height="120">
+      <table>  
+        <tr><div class="big">Singleplayer</div></tr>
+        <tr><div class="big">Multiplayer</div></tr>
+        <tr><div class="big random-map" onclick="toggleGenerationMode()">Random Map: <span class="map-generation">OFF</span></div></tr>
+        <br><br>
+        <tr>
+          <a class="small" onclick="changePage('.main')">Back</a><a style="opacity:0" >2</a>
+          <a class="small save" onclick="saveSettings()">Save Setttings</a>
+        </tr>
+      </table>
+      <p class="bubble thought" id="thought">
+        <div class="before"></div>
+        <div class="after"></div>
+        <div id="minecraft" class="piggy">
+        </div>
+      </p>
+      
+      <div class="subtitle" id="quote"></div>
+
+    </section>
+  </div>
+  <div class="wrapper page main" id="wrapper-1">
     <header id="text-container">
       <img src="https://cdn.worldvectorlogo.com/logos/minecraft.svg" alt="Minecraft Logo" width="900" height="120">
       <h2 class="sub-logo" id="line1"></h2>
@@ -148,28 +174,28 @@
             <td class="number">1</td>
             <td class="name">Netanel Mazuz</td>
             <td class="points">
-              258.244 <img class="gold-medal" src="./img/gold-medal.png" alt="gold medal"/>
+              258,244 <img class="gold-medal" src="./img/gold-medal.png" alt="gold medal"/>
             </td>
           </tr>
           <tr>
             <td class="number">2</td>
             <td class="name">Lee Bilu</td>
-            <td class="points">258.242</td>
+            <td class="points">258,242</td>
           </tr>
           <tr>
             <td class="number">3</td>
             <td class="name">Roy Pick</td>
-            <td class="points">258.223</td>
+            <td class="points">258,223</td>
           </tr>
           <tr>
             <td class="number">4</td>
             <td class="name">Shirly Tal</td>
-            <td class="points">258.212</td>
+            <td class="points">258,212</td>
           </tr>
           <tr>
             <td class="number">5</td>
             <td class="name">Eytan Pohoriles</td>
-            <td class="points">258.208</td>
+            <td class="points">258,208</td>
           </tr>
         </table>
         <div id="buttons">
@@ -197,10 +223,10 @@
       </div>
       
       <div class="hex-row-wrapper">
-        <a href="#wrapper-2" class="hexagon one" data-type="games""><i class="fa fa-gamepad fa-3" id="hex" data-hover-text="Play"></i></a>
+        <a href="#wrapper-2" class="hexagon one" data-type="games"><i class="fa fa-gamepad fa-3" id="hex" data-hover-text="Play"></i></a>
         <a href="#" class="hexagon two" data-type="desktop" onclick="showMediaPlayer()"><i class="fa fa-television" id="hex" data-hover-text="Screen"></i></a>
         <a href="#" class="hexagon three" data-type="controls" onclick="toggleKeyboard(1)"><i class="fa fa-keyboard-o" id="hex" data-hover-text="Keyboard"></i></a>
-        <a href="#" class="hexagon four" data-type="profile"><i class="fa fa-user" id="hex" data-hover-text="Leadboard"></i></a>
+        <a href="#" class="hexagon four" data-type="options" onclick="changePage('.options')"><i class="fa fa-cog" id="hex" data-hover-text="options" aria-hidden="true"></i></a>
         <a href="#" class="hexagon five selected" data-type="search" onclick="showLeadboard()"><i class="fa fa-globe" id="hex" data-hover-text="Internet"></i></a>
         <botton class="hexagon six" data-type="music" ><i class="fa fa-music" id="hex" data-hover-text="Music"></i></botton>
       </div>
@@ -214,13 +240,15 @@
 
   <div class="wrapper" id="wrapper-2" style="display: none;">
     <div class="window">
+      <div class="border-glow"></div>
+      <div class="border"></div>
       <nav class="window-controls">
         <div class="maximize">Instructions</div>
-        <div class="close"></div>
+        <!-- <div class="close"></div> -->
         <div class="minimize"></div>
       </nav>
       <section class="window-content">
-        <br><p>Instructions</p></br>
+        <br><p style="font-size: large;">Instructions</p></br>
         <p>1. Choose a harvesting tool from your tool box.</p>
         <p>2. Each tool can be used to harvest specific elements in the game.</p>
         <p>3. Harvested elements can be found in your inventory and can be used to creat surprizing new materials.</p>
@@ -232,7 +260,7 @@
         <p><span class="toolname">Hoe</span>: use to harvest <span class="material">lave</span> and <span class="material">bricks</span>.</p></br>
         <p>To summon the shortcut keyboard, please press <span class="toolname">K</span>.</p>
         <p>Have fun!</p>
-        <p><em>This mini-game was developed in two days work</em></p>
+        <p style="font-size: smaller; color: rgb(189, 189, 189);"><em>NOTE: This mini-game was developed in two days</em></p>
       </section>
     </div>
     <div class="marquee">
@@ -450,6 +478,8 @@
   <script src="./js/leaderboard.js"></script>
   <script src="./js/mediaplayer.js"></script>
   <script src="./js/textanimation.js"></script>
+  <script src="./js/options.js"></script>
+  <script src="./js/pig.js"></script>
 
 </body>
 </html>

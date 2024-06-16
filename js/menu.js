@@ -65,7 +65,7 @@ function moveLeft() {
 function updateCurrentAction(selectedElement) {
   const selected = document.querySelector('.selected');
   const index = Array.from(selectedElement.parentElement.children).indexOf(selectedElement);
-  const actions = ["PLAY", "TRAILER", "SHORTCUTS", "LOGIN","SCOREBOARD", "MUSIC"];
+  const actions = ["PLAY", "TRAILER", "SHORTCUTS", "OPTIONS","SCOREBOARD", "MUSIC"];
   const action = selected.innerHTML;
   const textContainer = document.querySelector('.text-container');
   textContainer.innerHTML = `<span>${actions[index]}</span>`;

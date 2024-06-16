@@ -74,7 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       // Clear cursor on Escape key press
-      document.body.addEventListener("keydown", event => {if (event.key === 'Escape') clearCursorToDefault()});
+      document.body.addEventListener("keydown", event => {
+        if (event.key === 'Escape'){
+          clearCursorToDefault(tiles);
+          hideLeadboard();
+          hideMediaPlayer();
+        }
+        });
 
       // Assign event listeners to each tile
       
@@ -114,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Function to clear the cursor to default
-  function clearCursorToDefault() {
+  function clearCursorToDefault(tiles) {
     tiles.forEach(box => {
       Object.values(toolBox).forEach(({ selectedClass }) => box.classList.remove(selectedClass));
       box.classList.add('cursor-default');

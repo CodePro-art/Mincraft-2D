@@ -1,3 +1,5 @@
+const INT_MAX = 9999999999999;
+
 // Toggle keyboard
 function toggleKeyboard() {
   let keyboard1 = document.querySelector('.key-wrapper-1');
@@ -10,7 +12,6 @@ function toggleKeyboard() {
   if (keyboard2.style.display === 'none' || keyboard2.style.display === '') {
     showKeyboard(2);
   } else {
-    console.log('hide keyboard 2');
     hideKeyboard(2);
   }
 }
@@ -69,39 +70,25 @@ function handleKeydown(event) {
     const key = event.key;
     const keyCode = event.keyCode;
     const activeElements = document.querySelectorAll('.key.k' + keyCode);
+    // check if the keyboadr is in english
+    if (keyCode >= 65 && keyCode <= 90 || keyCode === 32) {
+      
+    }
     if (key === 'k' || key === 'K'){
       toggleKeyboard(1);
       toggleKeyboard(2);  
     }
-    if (key === 'r' || key === 'R'){
-      document.querySelector('.fa-refresh').click();
-    }
-    if (key === 'm' || key === 'M'){
-      document.querySelector('.start').click();
-    }
-    if (key === '+' || key === '='){
-      document.querySelector('.fa-plus').click();
-    }
-    if (key === '-' || key === '_'){
-      document.querySelector('.fa-minus').click();
-    }
-    if (key === 'p' || key === 'P'){
-      changeTool('k80');
-    }
-    if (key === 'h' || key === 'H'){
-      changeTool('k72');
-    }
-    if (key === 'a' || key === 'A'){
-      changeTool('k65');
-    }
-    if (key === 's' || key === 'S'){
-      changeTool('k83');
-    }
+    else if (key === 'r' || key === 'R') document.querySelector('.fa-refresh').click();
+    else if (key === 'm' || key === 'M') document.querySelector('.start').click();
+    else if (key === '+' || key === '=') document.querySelector('.fa-plus').click();
+    else if (key === '-' || key === '_') document.querySelector('.fa-minus').click();
+    else if (key === 'p' || key === 'P') changeTool('k80');
+    else if (key === 'h' || key === 'H') changeTool('k72');
+    else if (key === 'a' || key === 'A') changeTool('k65');
+    else if (key === 's' || key === 'S') changeTool('k83');
 
     activeElements.forEach(el => el.classList.add('active-key'));
   }
-
-
 
 // Event listener for keydown event
 document.addEventListener('keydown', function(event) {
@@ -115,88 +102,42 @@ document.addEventListener('keydown', function(event) {
 window.addEventListener('keydown', handleKeydown);
 window.addEventListener('keyup', handleKeyup);
 
+const toolTips = [
+  { selector: '.k65', content: 'Axe tool' },
+  { selector: '.s65', content: 'Axe tool' },
+  { selector: '.k72', content: 'Hoe tool' },
+  { selector: '.s72', content: 'Hoe tool' },
+  { selector: '.k80', content: 'Pickaxe tool' },
+  { selector: '.s80', content: 'Pickaxe tool' },
+  { selector: '.k82', content: 'Reset World' },
+  { selector: '.s82', content: 'Reset World' },
+  { selector: '.k83', content: 'Shovel tool' },
+  { selector: '.s83', content: 'Shovel tool' },
+  { selector: '.k77', content: 'Play/Stop music' },
+  { selector: '.s77', content: 'Play/Stop music' },
+  { selector: '.k75', content: 'Un/Summon Keyboard' },
+  { selector: '.s75', content: 'Un/Summon Keyboard' },
+  { selector: '.k107', content: 'Volume up' },
+  { selector: '.s107', content: 'Volume up' },
+  { selector: '.k109', content: 'Volume down' },
+  { selector: '.s109', content: 'Volume down' },
+  { selector: '.one', content: 'Play!!' },
+  { selector: '.two', content: 'Watch Trailer!' },
+  { selector: '.three', content: 'Show Shortcuts' },
+  { selector: '.four', content: 'Options' },
+  { selector: '.five', content: 'Show Leader Board' },
+  { selector: '.six', content: 'Play/Mute Music' },
+];
+
 
 document.addEventListener('DOMContentLoaded', function() {
-  tippy('.k80', {
-    content: 'Pickaxe tool',
-  });
-  tippy('.k72', {
-    content: 'Hoe tool',
-  });
-  tippy('.k65', {
-    content: 'Axe tool',
-  });
-  tippy('.k72', {
-    content: 'Hoe tool',
-  });
-  tippy('.k83', {
-    content: 'Shovel tool',
-  });
-  tippy('.k77', {
-    content: 'Play/Stop music',
-  });
-  tippy('.k107', {
-    content: 'Volume up',
-  });
-  tippy('.k109', {
-    content: 'Volume down',
-  });
-  tippy('.k75', {
-    content: 'Un/Summon Keyboard',
-  });
-  tippy('.k82', {
-    content: 'Reset World',
-  });
 
-  tippy('.s80', {
-    content: 'Pickaxe tool',
-    zIndex: 9999999999999, 
-    appendTo: document.body
-  });
-  tippy('.s72', {
-    content: 'Hoe tool',
-    zIndex: 9999999999999, 
-    appendTo: document.body
-  });
-  tippy('.s65', {
-    content: 'Axe tool',
-    zIndex: 9999999999999, 
-    appendTo: document.body
-  });
-  tippy('.s72', {
-    content: 'Hoe tool',
-    zIndex: 9999999999999, 
-    appendTo: document.body
-  });
-  tippy('.s83', {
-    content: 'Shovel tool',
-    zIndex: 9999999999999, 
-    appendTo: document.body
-  });
-  tippy('.s77', {
-    content: 'Play/Stop music',
-    zIndex: 9999999999999, 
-    appendTo: document.body
-  });
-  tippy('.s107', {
-    content: 'Volume up',
-    zIndex: 9999999999999, 
-    appendTo: document.body
-  });
-  tippy('.s109', {
-    content: 'Volume down',
-    zIndex: 9999999999999, 
-    appendTo: document.body
-  });
-  tippy('.s75', {
-    content: 'Un/Summon Keyboard',
-    zIndex: 9999999999999, 
-    appendTo: document.body
-  });
-  tippy('.s82', {
-    content: 'Reset World',
-    zIndex: 9999999999999, 
-    appendTo: document.body
+  toolTips.forEach(tip => {
+    tippy(tip.selector, {
+      content: tip.content,
+      zIndex: INT_MAX,
+      appendTo: document.body,
+    });
   });
   
 });

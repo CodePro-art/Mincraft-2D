@@ -48,6 +48,7 @@ body {
   width: 100vw;
   height: 100vh;
   cursor: url(../img/cursors/default.cur), auto;
+  overflow: hidden; /* Prevent scrollbars */
 }
 header {
   display: flex;
@@ -386,9 +387,16 @@ header {
   width: 100%;
 }
 .music-buttons button{
-  height: 20px;
-  width: 20px;
+  height: 35px;
+  width: 35px;
   cursor: url(../img/cursors/pointer.cur), auto;
+  background: goldenrod;
+  border: 1px solid var(--menu_dark);
+  border-radius: 50%;
+  transition: 1s;
+}
+.music-buttons button:hover{
+  animation: pop 0.3s linear 1;
 }
 .volume-control {
   display: flex;
@@ -691,12 +699,13 @@ input[type="range"]::-ms-thumb {
   min-height: 650px;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 4px;
+  border-radius: 10px;
   z-index: 9999;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   transition: top 0.5s 0s cubic-bezier(0.1, 1.2, 0.3, 1), transform 0.5s 0s cubic-bezier(0.1, 1.2, 0.3, 1), width 0.5s 0.5s cubic-bezier(0.1, 1.2, 0.3, 1), opacity 0.3s;
 }
+
 .window .window-controls {
   position: absolute;
   top: 0;
@@ -716,7 +725,7 @@ input[type="range"]::-ms-thumb {
   height: 30px;
   text-align: center;
   line-height: 30px;
-  color: rgb(180, 185, 190);
+  color: rgb(101, 156, 211);
   cursor: url(../img/cursors/pointer.cur), auto;
   transition: opacity 0.3s 0.5s, top 0s 0.8s;
 }
@@ -816,12 +825,16 @@ input[type="range"]::-ms-thumb {
   top: 100%;
   transform: translate(-50%, -30px);
   width: 200px;
-  opacity: 0.5;
+  opacity: 1;
+  background: white;
 }
 .minimized .window:hover {
-  opacity: 0.75;
+  opacity: 1;
 }
 .minimized .maximize {
+  background: linear-gradient(90deg, #c4c4c4 0%, #ffffff 100%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: #010101;
   top: 0;
   opacity: 1;
   transition: opacity 0.3s 0.5s, top 0s 0.5s;
@@ -1123,4 +1136,246 @@ td {
   100% {
     top: -100vh;
   }
+}
+
+/* window animation instruction */
+/*// Glow Border Animation //*/
+
+.border, .border-glow{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden; 
+  z-index: 0;
+	border-radius: 10px;
+}
+
+.border-glow{
+  overflow: hidden;
+  filter: blur(20px);
+}
+
+.border:before, .border-glow:before {
+  content: '';
+  z-index: -2;
+  text-align: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(0deg);
+  position: absolute;
+	width: 1000px;
+	height: 1000px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-image: conic-gradient(rgba(0,0,0,0), #4894f8, rgba(0,0,0,0) 25%);
+	animation: rotate 2s linear infinite;
+}
+
+.border:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	left: 5px;
+	top: 5px;
+  /* double the px from the border width left */
+	width: calc(100% - 10px);
+	height: calc(100% - 10px);
+  /*bg color*/
+	background: #292a2e;
+  /*box border radius*/
+	border-radius: 7px;
+}
+
+@keyframes rotate {
+	100% {
+		transform: translate(-50%, -50%) rotate(1turn);
+	}
+}
+
+.fa-cog:hover {
+  animation: spin 2s linear infinite;
+}
+
+.fa-music:hover {
+  animation: arrows-alt 1s cubic-bezier(.36,.07,.57,.99) infinite;
+}
+
+.fa-gamepad:hover {
+  animation: times 1s cubic-bezier(.36,.07,.57,.99) infinite;
+}
+
+.fa-keyboard-o:hover {
+  animation: italic 0.45s cubic-bezier(.36,.07,.57,.99) infinite;
+}
+
+.fa-television:hover {
+  animation: lock 1s cubic-bezier(.36,.07,.57,.99) infinite;
+}
+
+.fa-globe:hover {
+  animation: magic 1s cubic-bezier(.36,.07,.57,.99) infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+
+
+}
+.map-generation {
+  color: rgb(77, 255, 1);
+}
+
+
+/* ANIMATIONS */
+@keyframes arrow-right {
+	0% {transform: translateX(0);}
+	33% {transform: translateX(-5px);}
+	66% {transform: translateX(5px);}
+	100% {transform: translateX(0);}
+}
+@keyframes arrows-alt {
+	0% {transform: translate(0, 0);}
+	20% {transform: translate(-5px, 5px);}
+	40% {transform: translate(-5px, -5px);}
+	60% {transform: translate(5px, 5px);}
+	80% {transform: translate(5px, -5px);}
+	100% {transform: translate(0, 0);}
+}
+@keyframes expand {
+	0% {transform: translate(0, 0);}
+	25% {transform: translate(-5px, 5px);}
+	50% {transform: scale(2) translate(0, 0);}
+	75% {transform: translate(5px, -5px);}
+	100% {transform: translate(0, 0);}
+}
+@keyframes refresh {
+	from {transform: rotate(0);}
+	to {transform: rotate(360deg);}
+}
+@keyframes heart {
+	0% {transform: scale(1.5);}
+	20% {transform: scale(2);}
+	30% {transform: scale(1.5);}
+	40% {transform: scale(2);}
+	100% {transform: scale(1.5);}
+}
+@keyframes undo {
+	0% {transform: translateX(0) rotate(0);}
+	33% {transform: translateX(10px) rotate(0);}
+	66% {transform: translateX(-10px) rotate(-360deg);}
+	100% {transform: translateX(0) rotate(-360deg);}
+}
+@keyframes italic {
+	0% {transform: skewX(0);}
+	50% {transform: skewX(12deg);}
+	100% {transform: skewX(0);}
+}
+@keyframes cog {
+	0% {transform: rotate(0);}
+	10% {transform: rotate(45deg);}
+	17% {transform: rotate(45deg);}
+	20% {transform: rotate(90deg);}
+	27% {transform: rotate(90deg);}
+	30% {transform: rotate(135deg);}
+	37% {transform: rotate(135deg);}
+	40% {transform: rotate(180deg);}
+	47% {transform: rotate(180deg);}
+	50% {transform: rotate(225deg);}
+	57% {transform: rotate(225deg);}
+	60% {transform: rotate(270deg);}
+	67% {transform: rotate(270deg);}
+	70% {transform: rotate(315deg);}
+	77% {transform: rotate(315deg);}
+	80% {transform: rotate(360deg);}
+	100% {transform: rotate(360deg);}
+}
+@keyframes wrench {
+	0% {transform: rotate(0);}
+	20% {transform: rotate(30deg);}
+	30% {transform: rotate(-20deg);}
+	50% {transform: rotate(30deg);}
+	60% {transform: rotate(-20deg);}
+	100% {transform: rotate(0);}
+}
+@keyframes mouse-pointer {
+	0% {transform: scale(1.5);}
+	20% {transform: scale(1.5);}
+	22.5% {transform: scale(1.2);}
+	32.5% {transform: scale(1.2);}
+	35% {transform: scale(1.5);}
+	100% {transform: scale(1.5);}
+}
+@keyframes magic {
+	0% {transform: translate(0, 0) rotate(0);}
+	10% {transform: translate(-5px, 2.5px) rotate(-10deg);}
+	20% {transform: translate(-10px, 0) rotate(-20deg);}
+	30% {transform: translate(-5px, -2.5px) rotate(-30deg);}
+	40% {transform: translate(0, 0) rotate(-20deg);}
+	50% {transform: translate(5px, 2.5px) rotate(-10deg);}
+	60% {transform: translate(10px, 0) rotate(0);}
+	70% {transform: translate(5px, -2.5px) rotate(10deg);}
+	100% {transform: translate(0, 0) rotate(0);}
+}
+@keyframes lock {
+	0% {transform: translateY(0);}
+	20% {transform: translateY(-5px);}
+	30% {transform: translateY(5px);}
+	50% {transform: translateY(-5px);}
+	60% {transform: translateY(5px);}
+	100% {transform: translateY(0);}
+}
+@keyframes unlock {
+	0% {transform: rotate(-15deg);}
+	15% {transform: rotate(-40deg);}
+	30% {transform: rotate(5deg);}
+	45% {transform: rotate(-30deg);}
+	60% {transform: rotate(-5deg);}
+	75% {transform: rotate(-20deg);}
+	90% {transform: rotate(-15deg);}
+	100% {transform: rotate(-15deg);}
+}
+@keyframes hourglass {
+	0% {transform: rotate(0);}
+	35% {transform: rotate(180deg);}
+	65% {transform: rotate(180deg);}
+	100% {transform: rotate(0);}
+}
+@keyframes eraser {
+	0% {transform: translate(0, 0);}
+	15% {transform: translate(-10px, -5px);}
+	30% {transform: translate(-10px, 5px);}
+	45% {transform: translate(-5px, -5px);}
+	60% {transform: translate(-5px, 5px);	}
+	75% {transform: translate(0, 0);}
+	100% {transform: translate(10px, 0);}
+}
+@keyframes rocket {
+	0% {transform: translate(0, 0);	opacity: 1;}
+	5% {transform: translate(2px, 0);	opacity: 1;}
+	10% {transform: translate(1px, -2px); opacity: 1;}
+	15% {transform: translate(3px, -1px); opacity: 1;}
+	20% {transform: translate(2px, -3px); opacity: 1;}
+	25% {transform: translate(4px, -2px); opacity: 1;}
+	50% {transform: translate(10px, -10px); opacity: 0;}
+	51% { transform: translate(-10px, 10px);	opacity: 0;}
+	100% {transform: translate(0, 0); opacity: 1;}
+}
+@keyframes times {
+	0% {transform: translateX(0);}
+	15% {transform: translateX(5px);}
+	30% {transform: translateX(-5px);}
+	45% {transform: translateX(3px);}
+	60% {transform: translateX(-3px);}
+	75% {transform: translateX(0);}
+	100% {transform: translateX(0);}
+}
+@keyframes battery {
+	0% {opacity: 1;}
+	50% {opacity: 0;}
+	100% {opacity: 0;}
 }
