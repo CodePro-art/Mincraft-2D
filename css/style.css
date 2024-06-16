@@ -197,43 +197,43 @@ header {
   animation: pop 0.3s linear 1;
 }
 .inv-dirt{
-  background: url(../img/inventory/inv-dirt.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-dirt.png) no-repeat center center / cover;
 }
 .inv-brick{
-  background: url(../img/inventory/inv-brick.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-brick.png) no-repeat center center / cover;
 }
 .inv-coal{
-  background: url(../img/inventory/inv-coal.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-coal.png) no-repeat center center / cover;
 }
 .inv-ice{
-  background: url(../img/inventory/inv-ice.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-ice.png) no-repeat center center / cover;
 }
 .inv-gold{
-  background: url(../img/inventory/inv-gold.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-gold.png) no-repeat center center / cover;
 }
 .inv-grass{
-  background: url(../img/inventory/inv-grass.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-grass.png) no-repeat center center / cover;
 }
 .inv-diamond{
-  background: url(../img/inventory/inv-diamond.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-diamond.png) no-repeat center center / cover;
 }
 .inv-glass{
-  background: url(../img/inventory/inv-glass.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-glass.png) no-repeat center center / cover;
 }
 .inv-sand{
-  background: url(../img/inventory/inv-sand.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-sand.png) no-repeat center center / cover;
 }
 .inv-snow{
-  background: url(../img/inventory/inv-snow.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-snow.png) no-repeat center center / cover;
 }
 .inv-stone{
-  background: url(../img/inventory/inv-stone.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-stone.png) no-repeat center center / cover;
 }
 .inv-wood{
-  background: url(../img/inventory/inv-wood.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-wood.png) no-repeat center center / cover;
 }
 .inv-silver{
-  background: url(../img/inventory/inv-silver.png) no-repeat center center / cover;
+  background: url(../assets/img/inventory/inv-silver.png) no-repeat center center / cover;
 }
 /* tools */
 .tools {
@@ -250,19 +250,22 @@ header {
 }
 .axe, .pickaxe, .shovel, .hoe {
   background-color: transparent;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 .axe{
-  background: url(../img/tools/axe.png) no-repeat center center / cover;
+  background: url(../assets/img/tools/axe.png) no-repeat center center / cover;
 }
 .pickaxe{
-  background: url(../img/tools/pickaxe.png) no-repeat center center / cover;
+  background: url(../assets/img/tools/pickaxe.png) no-repeat center center / cover;
 }
 .shovel{
-  background: url(../img/tools/shovel.png) no-repeat center center / cover;
+  background: url(../assets/img/tools/shovel.png) no-repeat center center / cover;
 }
 .hoe{
-  background: url(../img/tools/hoe.png) no-repeat center center / cover;
+  background: url(../assets/img/tools/hoe.png) no-repeat center center / cover;
+}
+.sword{
+  background: url(../assets/img/tools/sword.png) no-repeat center center / cover;
 }
 .tool-container, .item-container{
   display: flex;
@@ -430,43 +433,43 @@ header {
 }
 /* special tiles */
 .ground {
-  background: url(../img/tiles/gnd.jpg) no-repeat center center / cover;
+  background: url(../assets/img/tiles/gnd.jpg) no-repeat center center / cover;
 }
 .wood{
-  background: url(../img/tiles/wood.jpg) no-repeat center center / cover;
+  background: url(../assets/img/tiles/wood.jpg) no-repeat center center / cover;
 }
 .water{
-  background: url(../img/tiles/water.jpg) no-repeat center center / cover;
+  background: url(../assets/img/tiles/water.jpg) no-repeat center center / cover;
 }
 .metal{
-  background: url(../img/tiles/metal.jpg) no-repeat center center / cover;
+  background: url(../assets/img/tiles/metal.jpg) no-repeat center center / cover;
 }
 .lava{
-  background: url(../img/tiles/lava.jpg) no-repeat center center / cover;
+  background: url(../assets/img/tiles/lava.jpg) no-repeat center center / cover;
 }
 .ice{
-  background: url(../img/tiles/ice.jpg) no-repeat center center / cover;
+  background: url(../assets/img/tiles/ice.jpg) no-repeat center center / cover;
 }
 .leaves{
-  background: url(../img/tiles/leaves.jpg) no-repeat center center / cover;
+  background: url(../assets/img/tiles/leaves.jpg) no-repeat center center / cover;
 }
 .grass{
-  background: url(../img/tiles/grass.jpg) no-repeat top center / cover;
+  background: url(../assets/img/tiles/grass.jpg) no-repeat top center / cover;
 }
 .bush{
-  background: url(../imgtiles//bush.jpg) no-repeat top center / cover;
+  background: url(../assets/imgtiles//bush.jpg) no-repeat top center / cover;
 }
 .gold{
-  background: url(../img/tiles/gold.jpg) no-repeat top center / cover;
+  background: url(../assets/img/tiles/gold.jpg) no-repeat top center / cover;
 }
 .silver{
-  background: url(../img/tiles/silver.jpg) no-repeat top center / cover;
+  background: url(../assets/img/tiles/silver.jpg) no-repeat top center / cover;
 }
 .diamond{
-  background: url(../img/tiles/diamond.jpg) no-repeat top center / cover;
+  background: url(../assets/img/tiles/diamond.jpg) no-repeat top center / cover;
 }
 .stone{
-  background: url(../img/tiles/stone.jpg) no-repeat top center / cover;
+  background: url(../assets/img/tiles/stone.jpg) no-repeat top center / cover;
 }
 .tool.selected{
   border: 2px solid #000000;
