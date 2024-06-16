@@ -5,37 +5,33 @@
   
   /* options page transition */
 .options{
-    background: url("../assets/img/bg/poster.png") no-repeat center center / cover;
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    text-align: center;
-    font-family: 'Minecraftia', sans-serif;
-    display: flex;
-    justify-content: center;
-}
-.options-logo{
-    position: relative;
-    top: -30vh;
+  background: url("../assets/img/bg/poster.png") no-repeat center center / cover;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  text-align: center;
+  font-family: 'Minecraftia', sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
-.options section{
-    position: sbolute;
-    padding-top: 350px;
+.options-logo{
+  position: relative;
+  top: -18vh;
 }
-  
+
 .hidden {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 div.big, a.small {
-    border-style: solid;
-    border-width: 5px;
-    border-color: black;
-    color: white;
-    background: grey;
-    cursor: url("../img/cursors/pointer.cur"), auto;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  color: white;
+  background: grey;
+  cursor: url("../assets/img/cursors/pointer.cur"), auto;
 }
   
 div.big:hover, a.small:hover {
@@ -43,112 +39,114 @@ div.big:hover, a.small:hover {
     background: #6589AC;
 }
   
+div.big {
+  margin: 1% 10%;
+  padding: 1% 0%;
+  font-size: 150%;
+}
+
+div.random-map{
+  margin-bottom: 5vh;
+}
+
+a.small {
+  text-decoration: none;
+  width: 100%;
+  margin: 5% 0%;
+  padding: 1% 7.7%;
+  font-size: 150%;
+  background: rgb(73, 255, 73);
+}
+
+.subtitle {
+  position: absolute;
+  color: yellow;
+  left: 10vw;
+  top: 14.5vh;
+  font-size: 150%;
+  transform: rotate(-20deg);
+  width: 100%;
+  animation: subtitle 0.25s alternate infinite;
+}
+
+@keyframes subtitle {
+  0% {
+    transform: scale(0.875) rotate(-20deg);
+  }
+  100% {
+    transform: scale(1) rotate(-20deg);
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  div.big, a.small {
+    border-width: 4px;
+  }
+
   div.big {
     margin: 1% 10%;
     padding: 1% 0%;
-    font-size: 150%;
+    font-size: 100%;
   }
-  
+
   a.small {
-    text-decoration: none;
     width: 100%;
-    margin: 5% 0%;
+    margin: 1% 0%;
     padding: 1% 7.7%;
-    font-size: 150%;
+    font-size: 100%;
   }
-  
- a.save {
-    background: rgb(73, 255, 73);
+  a.approve {
+    background: rgb(0, 255, 0);
   }
 
   .subtitle {
-    position: absolute;
-    color: yellow;
-    left: 10vw;
-    top: 14.5vh;
-    font-size: 150%;
-    transform: rotate(-20deg);
-    width: 100%;
-    animation: subtitle 0.25s alternate infinite;
+    font-size: 75%;
   }
-  
-  @keyframes subtitle {
-    0% {
-      transform: scale(0.875) rotate(-20deg);
-    }
-    100% {
-      transform: scale(1) rotate(-20deg);
-    }
-  }
-  
-  @media screen and (max-width: 1070px) {
-    div.big, a.small {
-      border-width: 4px;
-    }
-  
-    div.big {
-      margin: 1% 10%;
-      padding: 1% 0%;
-      font-size: 100%;
-    }
-  
-    a.small {
-      width: 100%;
-      margin: 1% 0%;
-      padding: 1% 7.7%;
-      font-size: 100%;
-    }
-  
-    .subtitle {
-      font-size: 75%;
-    }
-  }
-  
-  @media screen and (max-width: 727px) {
-    div.big, a.small {
-      border-width: 3px;
-    }
-  
-    div.big {
-      margin: 1% 10%;
-      padding: 1% 0%;
-      font-size: 75%;
-    }
-  
-    a.small {
-      width: 100%;
-      margin: 1% 0%;
-      padding: 1% 7.7%;
-      font-size: 75%;
-    }
-  
-    .subtitle {
-      font-size: 75%;
-    }
-  }
-  
-  .piggy{
-    position: absolute;
-    top: 32vh;
-    left: 45vw;
-    z-index: 1;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-
-
-.bubble >*{
-    font-family: 'Minecraftia', sans-serif; 
 }
   
+@media screen and (max-width: 727px) {
+  div.big, a.small {
+    border-width: 3px;
+  }
+
+  div.big {
+    margin: 1% 10%;
+    padding: 1% 0%;
+    font-size: 75%;
+  }
+
+  a.small {
+    width: 100%;
+    margin: 1% 0%;
+    padding: 1% 7.7%;
+    font-size: 75%;
+  }
+
+  .subtitle {
+    font-size: 75%;
+  }
+}
+  
+.piggy{
+  position: absolute;
+  top: 19vh;
+  left: 45vw;
+  z-index: 1;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bubble {
+  position: relative;
+}
+
 p.bubble {
-	position: relative;
-    top: -47.5vh;
-    left: 11vw;
+  top: -44vh;
+  left: 10vw;
 	width: 400px;
 	text-align: center;
 	line-height: 1.4em;
@@ -159,39 +157,45 @@ p.bubble {
 	font-family: sans-serif;
 	padding: 20px;
 	font-size: large;
-    border-radius: 200px;
+  border-radius: 200px;
 	padding: 30px;
-    animation: thoughtAppear 0.7s 3s forwards; 
-    opacity: 0; 
-    transform: scale(0); 
+  animation: thoughtAppear 0.7s 3s forwards; 
+  opacity: 0; 
+  transform: scale(0); 
 }
 
 .after, .before{
-    position: absolute;
+  position: absolute;
 	background-color: #fff;
 	border: 5px solid #333;
 	-webkit-border-radius: 28px;
 	-moz-border-radius: 28px;
 	border-radius: 28px;
-    opacity: 0; 
-    transform: scale(0); 
+  opacity: 0; 
+  transform: scale(0); 
 }
 
 .after {
-    top: 37vh;
-    left: 52vw;
+  top: 29vh;
+  left: 52vw;
 	width: 30px;
 	height: 30px;
-    animation: thoughtAppear 0.7s 1s forwards;
+  animation: thoughtAppear 0.7s 1s forwards;
 }
 
-
 .before{
-    top: 36vh;
-    left: 53vw;
-    width: 40px;
+  top: 27vh;
+  left: 52.5vw;
+  width: 40px;
 	height: 40px;
-    animation: thoughtAppear 0.7s 2s forwards; 
+  animation: thoughtAppear 0.7s 2s forwards; 
+}
+
+.options p{
+  font-family: 'Minecraftia', sans-serif;
+  font-size: smaller;
+  color: rgb(71, 255, 169);
+  font-weight: lighter;
 }
 
 @keyframes thoughtAppear {
@@ -209,15 +213,6 @@ p.bubble {
     }
   }
 
-  .options p{
-    font-family: 'Minecraftia', sans-serif;
-    font-size: smaller;
-    color: rgb(71, 255, 169);
-    font-weight: lighter;
-  }
 
-  .approve {
-    background: rgb(0, 255, 0);
-  }
   
  

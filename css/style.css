@@ -36,7 +36,7 @@ video::-webkit-media-controls-time-remaining-display,
 video::-webkit-media-controls-seek-back-button,
 video::-webkit-media-controls-seek-forward-button,
 video::-webkit-media-controls-fullscreen-button {
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 html {
   scroll-behavior: smooth;
@@ -48,7 +48,7 @@ body {
   letter-spacing: 1.5px;
   width: 100vw;
   height: 100vh;
-  cursor: url(../img/cursors/default.cur), auto;
+  cursor: url(../assets/img/cursors/default.cur), auto;
   overflow: hidden; /* Prevent scrollbars */
 }
 header {
@@ -58,7 +58,7 @@ header {
   margin-top: 100px;
 }
 .cursor-default {
-  cursor: url(../img/cursors/default.cur), auto;
+  cursor: url(../assets/img/cursors/default.cur), auto;
 }
 .cursor-axe{
   cursor: url(../img/cursors/axe.cur), auto;
@@ -153,7 +153,7 @@ header {
   justify-content: space-between;
   background-color: #333;
   z-index: 130;
-  cursor: url(../img/cursors/default.cur), auto;
+  cursor: url(../assets/img/cursors/default.cur), auto;
 }
 .menu-buttons >*{
   flex: 1;
@@ -165,7 +165,7 @@ header {
   transition: .3s;
   color: #fff;
   opacity: 0.6;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 .back :hover{
   opacity: 1;
@@ -189,7 +189,7 @@ header {
   margin: 15px;
   font-size: 24px;
   border: none;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 .inv:hover{
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
@@ -241,7 +241,7 @@ header {
   background: var(--menu_color);
   max-height: 15vh;
   min-height: 250px;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 .axe, .pickaxe, .shovel, .hoe, .inv{
   width: 60px;
@@ -282,11 +282,11 @@ header {
 }
 .tool{
   background-color: rgb(104, 104, 104);
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
   margin-bottom: 10px;
 }
 .cursor-default{
-  cursor: url(../img/cursors/default.cur), auto;
+  cursor: url(../assets/img/cursors/default.cur), auto;
 }
 .cursor-axe{
   cursor: url(../img/cursors/axe.cur), auto;
@@ -305,7 +305,7 @@ header {
   justify-content: center;
   max-height: 100px;
   background: var(--menu_color);
-  cursor: url(../img/cursors/default.cur), auto;
+  cursor: url(../assets/img/cursors/default.cur), auto;
 }
 .fa-refresh {
   border-radius: 50%;
@@ -315,7 +315,7 @@ header {
   margin-top: 10px;
   border: 2px solid var(--menu_dark);
   background-color: goldenrod;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 .fa-refresh:hover{
   animation: pop 0.3s linear 1;
@@ -325,7 +325,7 @@ header {
   -moz-animation: spin 0.2s ease-in-out;
   animation: spin 0.2s ease-in-out;
   animation-fill-mode: forwards;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 
 .tools-cols {
@@ -345,7 +345,7 @@ header {
   background: var(--menu_color);
   padding: 5px;
   margin: 10px;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 .tool-container button:hover{
   border: none;
@@ -377,7 +377,7 @@ header {
 .music-buttons button{
   height: 35px;
   width: 35px;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
   background: goldenrod;
   border: 1px solid var(--menu_dark);
   border-radius: 50%;
@@ -408,7 +408,7 @@ header {
   list-style: none;
   flex-wrap: wrap;
   z-index: 100;
-  cursor: url(../img/cursors/default.cur), auto;
+  cursor: url(../assets/img/cursors/default.cur), auto;
 }
 /* default box = sky */
 .box{
@@ -479,7 +479,7 @@ header {
 /* audio style */
 .volume-control label{
   padding-bottom: 10px;
-  cursor: url(../img/cursors/default.cur), auto;
+  cursor: url(../assets/img/cursors/default.cur), auto;
 }
 input[type="range"] {
   -webkit-appearance: none;
@@ -491,17 +491,17 @@ input[type="range"] {
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 input[type="range"]:hover {
   opacity: 1;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 /* WebKit browsers */
 input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 10px;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
   background: #2196F3;
  /* Track color */
   border-radius: 5px;
@@ -514,7 +514,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: goldenrod;
  /* Thumb color */
   border: 1px solid brown;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
   border-radius: 50%;
   margin-top: -5px;
  /* Center the thumb */
@@ -523,7 +523,7 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-moz-range-track {
   width: 100%;
   height: 10px;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
   background: #2196F3;
  /* Track color */
   border-radius: 5px;
@@ -533,14 +533,14 @@ input[type="range"]::-moz-range-thumb {
   height: 20px;
   background: #4CAF50;
  /* Thumb color */
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
   border-radius: 50%;
 }
 /* Internet Explorer */
 input[type="range"]::-ms-track {
   width: 100%;
   height: 10px;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
   background: transparent;
   border-color: transparent;
   color: transparent;
@@ -560,13 +560,13 @@ input[type="range"]::-ms-thumb {
   height: 20px;
   background: #4CAF50;
  /* Thumb color */
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
   border-radius: 50%;
   margin-top: 0px;
  /* Center the thumb */
 }
 #volumeRange{
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 .text-container {
   display: inline-flex;
@@ -617,7 +617,7 @@ input[type="range"]::-ms-thumb {
   color: #fff;
   border: none;
   padding: 10px 15px;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
   z-index: 1;
 }
 
@@ -676,13 +676,13 @@ input[type="range"]::-ms-thumb {
   text-align: center;
   line-height: 30px;
   color: rgb(101, 156, 211);
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
   transition: opacity 0.3s 0.5s, top 0s 0.8s;
 }
 .window .close,
 .window .minimize {
   opacity: 0.5;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 .window .window-controls .close:hover,
 .window .window-controls .minimize:hover {
@@ -839,7 +839,7 @@ input[type="range"]::-ms-thumb {
   border: 0;
   border-bottom: 0.2rem solid #c0506a;
   border-radius: 2rem;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 
 .share:active {
@@ -856,7 +856,7 @@ h1 {
   font-size: 1.7rem;
   color: #141a39;
   text-transform: uppercase;
-  cursor: url(../img/cursors/default.cur), auto;
+  cursor: url(../assets/img/cursors/default.cur), auto;
 }
 
 #leaderboard {
@@ -870,7 +870,7 @@ table {
   border-collapse: collapse;
   table-layout: fixed;
   color: #141a39;
-  cursor: url(../img/cursors/default.cur), auto;
+  cursor: url(../assets/img/cursors/default.cur), auto;
 }
 
 tr {
@@ -984,7 +984,7 @@ td {
   border: 0;
   background-color: #fff;
   border-radius: 2rem;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 
 .exit:hover {
@@ -1002,7 +1002,7 @@ td {
   border: 0;
   border-bottom: 0.2rem solid #3838b8;
   border-radius: 2rem;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 
 .continue:active {
