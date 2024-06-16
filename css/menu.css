@@ -15,7 +15,7 @@
   position: absolute;
   width: 100px;
   height: 87px;
-  background-image: url(../img/hexagon.svg);
+  background-image: url(../assets/img/svg/hexagon.svg);
   z-index: 999;
   cursor: url(../img/cursors/pointer.cur), auto;
 }
