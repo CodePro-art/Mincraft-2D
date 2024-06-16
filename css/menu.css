@@ -101,7 +101,7 @@
   bottom: -13px;
   left: calc(50% - 51.5px);
   opacity: .3;
-  z-index: 0;
+  z-index: -1;
 }
 
 .active:before,
@@ -114,8 +114,8 @@
   -ms-transform: scaleY(0.5774) rotate(-45deg);
   transform: scaleY(0.5774) rotate(-45deg);
   left: 9.766px;
+  z-index: -1;
 }
-
 
 .active:before {
   top: -37.234px;
@@ -137,6 +137,7 @@
   left: 28px;
   bottom: -19px;
   cursor: url(../assets/img/cursors/pointer.cur), auto;
+  z-index: 99999;
 }
 
 .arrow-right {
@@ -147,6 +148,7 @@
   left: 28px;
   top: -21px;
   cursor: url(../assets/img/cursors/pointer.cur), auto;
+  z-index: 99999;
 }
 
 i.fa {
@@ -159,6 +161,7 @@ i.fa {
   text-align: center;
   line-height: 85px;
   cursor: url(../assets/img/cursors/pointer.cur), auto;
+  z-index: 99999;
 }
 
 .volume {
