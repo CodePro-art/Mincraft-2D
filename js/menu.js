@@ -1,3 +1,4 @@
+// Autor: Netanel Mazuz
 //initialize vars  
 let arrowRight = document.querySelector('.arrow-right'),
     arrowLeft = document.querySelector('.arrow-left'),
@@ -14,52 +15,47 @@ let arrowRight = document.querySelector('.arrow-right'),
 function moveRight() {
   clearTimeout(debounce);
   debounce = setTimeout(function() {
-      menuAngle += 60;
-      iconAngle -= 60;
-      // rotate icon
-      for (let i = 0; i < icons.length; i++) {
-          icons[i].setAttribute("style", 'transform: rotate(' + iconAngle + 'deg);');
-      }
-      // rotate menu
-      hexWrapper.setAttribute("style", 'transform: rotate(' + menuAngle + 'deg);');
-      // Select next item
-      let selected = document.querySelector('.selected');
-      selected.classList.remove('selected');
-      let newSelected;
-      if (selected.classList.contains('one')) {
-          newSelected = selected.parentElement.lastElementChild;
-      } else {
-          newSelected = selected.previousElementSibling;
-      }
-      newSelected.classList.add('selected');
-      // Update the h2 content
-      updateCurrentAction(newSelected);
+    menuAngle += 60;
+    iconAngle -= 60;
+    // rotate icon
+    for (let i = 0; i < icons.length; i++)
+      icons[i].setAttribute("style", 'transform: rotate(' + iconAngle + 'deg);');
+
+    // rotate menu
+    hexWrapper.setAttribute("style", 'transform: rotate(' + menuAngle + 'deg);');
+
+    // Select next item
+    let selected = document.querySelector('.selected');
+    selected.classList.remove('selected');
+    let newSelected = selected.classList.contains('one') ? selected.parentElement.firstElementChild : selected.nextElementSibling;
+
+    newSelected.classList.add('selected');
+    // Update the h2 content
+    updateCurrentAction(newSelected);
   }, delay);
 }
 
 function moveLeft() {
   clearTimeout(debounce);
   debounce = setTimeout(function() {
-      menuAngle -= 60;
-      iconAngle += 60;
-      // rotate icon
-      for (let i = 0; i < icons.length; i++) {
-          icons[i].setAttribute("style", 'transform: rotate(' + iconAngle + 'deg);');
-      }
-      // rotate menu
-      hexWrapper.setAttribute("style", 'transform: rotate(' + menuAngle + 'deg);');
-      // Select the current
-      let selected = document.querySelector('.selected');
-      selected.classList.remove('selected');
-      let newSelected;
-      if (selected.classList.contains('six')) {
-          newSelected = selected.parentElement.firstElementChild;
-      } else {
-          newSelected = selected.nextElementSibling;
-      }
-      newSelected.classList.add('selected');
-      // Update the h2 content
-      updateCurrentAction(newSelected);
+    menuAngle -= 60;
+    iconAngle += 60;
+    
+    // rotate icon
+    for (let i = 0; i < icons.length; i++) 
+      icons[i].setAttribute("style", 'transform: rotate(' + iconAngle + 'deg);');
+
+    // rotate menu
+    hexWrapper.setAttribute("style", 'transform: rotate(' + menuAngle + 'deg);');
+
+    // Select the current
+    let selected = document.querySelector('.selected');
+    selected.classList.remove('selected');
+    let newSelected = selected.classList.contains('six') ? selected.parentElement.firstElementChild : selected.nextElementSibling;
+
+    newSelected.classList.add('selected');
+    // Update the h2 content
+    updateCurrentAction(newSelected);
   }, delay);
 }
 function updateCurrentAction(selectedElement) {
@@ -94,15 +90,9 @@ function enterSelected() {
 };
 
 //click listeners
-arrowLeft.addEventListener("click", function(){
-  moveLeft();
-});
-arrowRight.addEventListener("click", function(){
-  moveRight();
-});
-enterKey.addEventListener("click", function(){
-  enterSelected();
-});
+arrowLeft.addEventListener("click", function(){ moveLeft()});
+arrowRight.addEventListener("click", function(){ moveRight()});
+enterKey.addEventListener("click", function(){ enterSelected()});
 
 //key listenters
 document.body.addEventListener("keydown", function(e){

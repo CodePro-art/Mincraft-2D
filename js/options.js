@@ -60,6 +60,11 @@ function myFunction() {
 function toggleGenerationMode() {
     // const mapGeneration = document.querySelector('.random-map');
     var spanElement = document.querySelector('.map-generation');
-    spanElement.textContent = (spanElement.textContent === "OFF") ? "ON" : "OFF";
+    spanElement.textContent = (spanElement.textContent === "off") ? "on" : "off";
+}
+
+function toggleMapSize() {
+    var spanElement = document.querySelector('.map-size');
+    spanElement.textContent = (spanElement.textContent === "small") ? "large" : "small";
 }
 

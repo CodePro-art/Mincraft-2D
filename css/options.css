@@ -198,6 +198,10 @@ p.bubble {
   font-weight: lighter;
 }
 
+.options-value {
+  color: yellowgreen;
+}
+
 @keyframes thoughtAppear {
     0% {
       opacity: 0;

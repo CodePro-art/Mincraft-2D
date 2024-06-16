@@ -1099,9 +1099,8 @@ td {
   animation: spin 2s linear infinite;
 }
 
-.fa-music:hover {
+.fa-music:hover { 
   animation: arrows-alt 1s cubic-bezier(.36,.07,.57,.99) infinite;
-  transform-origin: center;
 }
 
 .fa-gamepad:hover {
@@ -1119,11 +1118,6 @@ td {
 .fa-globe:hover {
   animation: magic 1s cubic-bezier(.36,.07,.57,.99) infinite;
 }
-
-.map-generation {
-  color: rgb(77, 255, 1);
-}
-
 
 /* ANIMATIONS */
 @-moz-keyframes spin {
