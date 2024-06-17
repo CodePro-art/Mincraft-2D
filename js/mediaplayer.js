@@ -2,6 +2,8 @@
 function showMediaPlayer() {
     mediaPlayerContainer = document.querySelector('.media-player')
     // mediaPlayerContainer.style.display = 'flex';
+    document.querySelector('.back').click();
+    
     setTimeout(() => {
         mediaPlayerContainer.classList.add('show');
         mediaPlayerContainer.classList.remove('hide');

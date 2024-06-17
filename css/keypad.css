@@ -43,7 +43,7 @@
   line-height: 21px;
   text-align: center;
   text-transform: uppercase;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
  	-webkit-transition: .5s;
 		 -moz-transition: .5s;
 			 -o-transition: .5s;
@@ -62,7 +62,7 @@
   line-height: 21px;
   text-align: center;
   text-transform: uppercase;
-  cursor: url(../img/cursors/pointer.cur), auto;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
  	-webkit-transition: .5s;
 		 -moz-transition: .5s;
 			 -o-transition: .5s;

@@ -63,8 +63,14 @@ function toggleGenerationMode() {
     spanElement.textContent = (spanElement.textContent === "off") ? "on" : "off";
 }
 
-function toggleMapSize() {
-    var spanElement = document.querySelector('.map-size');
-    spanElement.textContent = (spanElement.textContent === "small") ? "large" : "small";
+function changeMapSize() {
+  const sizes = ["small", "medium", "large"];
+  var spanElement = document.querySelector('.map-size');
+  const currentSizeIndex = sizes.indexOf(spanElement.textContent);
+  spanElement.textContent = sizes[(currentSizeIndex + 1) % sizes.length];
 }
 
+function changeMapTheme() {
+  var spanElement = document.querySelector('.theme');
+  spanElement.textContent = (spanElement.textContent === "normal") ? "winter" : "normal";
+}

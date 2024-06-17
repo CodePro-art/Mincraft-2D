@@ -51,6 +51,7 @@ body {
   cursor: url(../assets/img/cursors/default.cur), auto;
   overflow: hidden; /* Prevent scrollbars */
 }
+
 header {
   display: flex;
   flex-direction: column;
@@ -61,16 +62,16 @@ header {
   cursor: url(../assets/img/cursors/default.cur), auto;
 }
 .cursor-axe{
-  cursor: url(../img/cursors/axe.cur), auto;
+  cursor: url(../assets/img/cursors/axe.cur), auto;
 }
 .cursor-shovel{
-  cursor: url(../img/cursors/shovel.cur), auto;
+  cursor: url(../assets/img/cursors/shovel.cur), auto;
 }
 .cursor-pickaxe{
-  cursor: url(../img/cursors/pickaxe.cur), auto;
+  cursor: url(../assets/img/cursors/pickaxe.cur), auto;
 }
 .cursor-hoe{
-  cursor: url(../img/cursors/hoe.cur), auto;
+  cursor: url(../assets/img/cursors/hoe.cur), auto;
 }
 .chosen {
   border: 3px solid #000000;
@@ -83,6 +84,12 @@ header {
   align-items: center;
   height: 100vh;
   width: 100vw;
+}
+.unselectable {
+  user-select: none; /* Standard syntax */
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none; /* For Internet Explorer and Edge */
 }
 #text-container {
   min-height: 30vh;
@@ -289,16 +296,16 @@ header {
   cursor: url(../assets/img/cursors/default.cur), auto;
 }
 .cursor-axe{
-  cursor: url(../img/cursors/axe.cur), auto;
+  cursor: url(../assets/img/cursors/axe.cur), auto;
 }
 .cursor-shovel{
-  cursor: url(../img/cursors/shovel.cur), auto;
+  cursor: url(../assets/img/cursors/shovel.cur), auto;
 }
 .cursor-pickaxe{
-  cursor: url(../img/cursors/pickaxe.cur), auto;
+  cursor: url(../assets/img/cursors/pickaxe.cur), auto;
 }
 .cursor-hoe{
-  cursor: url(../img/cursors/hoe.cur), auto;
+  cursor: url(../assets/img/cursors/hoe.cur), auto;
 }
 .reset-container{
   display: flex;

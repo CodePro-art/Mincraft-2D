@@ -82,6 +82,9 @@ function handleKeydown(event) {
     else if (key === 'm' || key === 'M') document.querySelector('.start').click();
     else if (key === '+' || key === '=') document.querySelector('.fa-plus').click();
     else if (key === '-' || key === '_') document.querySelector('.fa-minus').click();
+    else if (key === 't' || key === 'T') document.querySelector('.fa-television').click();
+    else if (key === 'g' || key === 'G') document.querySelector('.fa-gamepad').click();
+    else if (key === 'l' || key === 'L') document.querySelector('.fa-globe').click();
     else if (key === 'p' || key === 'P') changeTool('k80');
     else if (key === 'h' || key === 'H') changeTool('k72');
     else if (key === 'a' || key === 'A') changeTool('k65');
@@ -105,14 +108,22 @@ window.addEventListener('keyup', handleKeyup);
 const toolTips = [
   { selector: '.k65', content: 'Axe tool' },
   { selector: '.s65', content: 'Axe tool' },
+  { selector: '.k71', content: 'Play Game' },
+  { selector: '.s71', content: 'Play Game' },
   { selector: '.k72', content: 'Hoe tool' },
   { selector: '.s72', content: 'Hoe tool' },
+  { selector: '.k76', content: 'Show Leadboard' },
+  { selector: '.s76', content: 'Show Leadboard' },
+  { selector: '.k79', content: 'Open options' },
+  { selector: '.s79', content: 'Open options' },
   { selector: '.k80', content: 'Pickaxe tool' },
   { selector: '.s80', content: 'Pickaxe tool' },
   { selector: '.k82', content: 'Reset World' },
   { selector: '.s82', content: 'Reset World' },
   { selector: '.k83', content: 'Shovel tool' },
   { selector: '.s83', content: 'Shovel tool' },
+  { selector: '.k84', content: 'Show Trailer' },
+  { selector: '.s84', content: 'Show Trailer' },
   { selector: '.k77', content: 'Play/Stop music' },
   { selector: '.s77', content: 'Play/Stop music' },
   { selector: '.k75', content: 'Un/Summon Keyboard' },
