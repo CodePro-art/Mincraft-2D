@@ -463,6 +463,9 @@ header {
 .grass{
   background: url(../assets/img/tiles/grass.jpg) no-repeat top center / cover;
 }
+.snow {
+  background: url(../assets/img/tiles/snow.jpg) no-repeat top center / cover;
+}
 .bush{
   background: url(../assets/img/tiles/bush.jpg) no-repeat top center / cover;
 }
@@ -661,6 +664,7 @@ input[type="range"]::-ms-thumb {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   transition: top 0.5s 0s cubic-bezier(0.1, 1.2, 0.3, 1), transform 0.5s 0s cubic-bezier(0.1, 1.2, 0.3, 1), width 0.5s 0.5s cubic-bezier(0.1, 1.2, 0.3, 1), opacity 0.3s;
+  cursor: url(../assets/img/cursors/pointer.cur), auto;
 }
 
 .window .window-controls {
@@ -1102,6 +1106,19 @@ td {
 	border-radius: 7px;
 }
 
+#message-container{
+  display: none;
+  position: fixed;
+  background: linear-gradient(90deg, #c4c4c4 0%, #ffffff 100%);
+  font-weight: lighter;
+  border-radius: 3px;
+  top: 20px;
+  left: 250px;
+  z-index: 9999;
+  padding: 3px;
+  color: rgb(63, 137, 227);
+  /* font-family: 'Minecraftia', sans-serif; */
+}
 .fa-cog:hover {
   animation: spin 2s linear infinite;
 }

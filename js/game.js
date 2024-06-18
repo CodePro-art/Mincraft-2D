@@ -1,19 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const rows = 20;
-  const cols = 25;
-  const grass = rows - 6;
-  const snow = rows - 6;
-  const road = rows - 6;
-  const ground = rows - 5;
-  const lava = rows - 1;
-  const water = rows - 1;
 
+  // Define the map size
   const mapSize = {
     small: { rows: 20, cols: 25 },
-    medium: { rows: 25, cols: 30 },
-    large: { rows: 30, cols: 35 }
+    medium: { rows: 20, cols: 30 },
+    large: { rows: 20, cols: 35 }
   };
-  
+
+  // Define the game screen, inventory, and tools
   const screen = document.querySelector('.game-screen');
   const tools = document.querySelectorAll('.tool');
   const inventory = document.querySelectorAll('.inv');
@@ -36,46 +30,44 @@ document.addEventListener("DOMContentLoaded", () => {
     default: { selectedClass: 'cursor-default', toolClass: 'default' }
   };
 
-  // Define the Minecraft theme
-  const theme = {
-    liquid: { lava: 'lava', water: 'water' },
-    ground: { ground: 'ground', sand: 'sand', gold: 'gold', silver: 'silver', stone: 'stone' },
-    mineral: { diamond: 'diamond', coal: 'coal', brick: 'brick', ice: 'ice', glass: 'glass'},
-    plant: { grass: 'grass', bush: 'bush', leaves: 'leaves', wood: 'wood' },
-    snow: { snow: 'snow' },
-    road: { road: 'road' }
-  };
-
   class Minecraft {
-    constructor(rows, cols) {
+    constructor(rows, cols, theme = 'normal') {
       this.selectedTool = "cursor-default";
       this.inventoryCounter = {
         dirt: 0, brick: 0, coal: 0, ice: 0, gold: 0, grass: 0, silver: 0,
         glass: 0, sand: 0, snow: 0, stone: 0, wood: 0
       };
+      this.theme = {
+        normal: { liquid: 'lava', ground: 'ground', mineral: 'gold', mineral2: 'silver', mineral3: 'diamond', leaves: 'leaves', rock: 'stone', plant: 'bush', wood: 'wood', sky: 'sky', road: 'grass' },
+        winter: { liquid: 'water', ground: 'ground', mineral: 'diamond', mineral2: 'silver', mineral3: 'gold', leaves: 'leaves', rock: 'stone',  plant: 'bush', wood: 'wood', sky: 'sky', road: 'snow'}
+      }
       this.mapSize = 0;
-      this.mapRandomGeneration = false;
+      this.userChoice = theme;
       this.rows = rows;
       this.cols = cols;
-      this.grass = rows - 6;
-      this.snow = rows - 6;
       this.road = rows - 6;
       this.ground = rows - 5;
-      this.lava = rows - 1;
-      this.water = rows - 1;
+      this.liquid = rows - 1;
       this.map = [];
     }
 
     // Initialize the game world
     initialize() {
-      this.mapRandomGeneration ? this.generateRandomMap(): this.generateMap();
-
+      let mapGen = document.querySelector('.map-generation').textContent === 'random' ? true : false;
+      mapGen ? this.generateRandomMap(this.theme[this.userChoice]): this.generateMap(this.theme[this.userChoice]);
       const tiles = document.querySelectorAll('.box');
 
       // Assign event listeners to each tool
-      tools.forEach(tool => { tool.addEventListener('click', () => { Object.keys(toolBox).forEach(toolName => {  if (tool.classList.contains(toolBox[toolName].toolClass)) selectTool(toolName, tiles)})})});
+      tools.forEach(tool => { 
+        tool.addEventListener('click', () => { 
+          Object.keys(toolBox).forEach(toolName => {  
+            if (tool.classList.contains(toolBox[toolName].toolClass)) selectTool(toolName, tiles, this);
+          });
+        });
+      });
+      
       // Assign event listeners to each tile
-      tiles.forEach(box => box.addEventListener('click', () => handleBoxClick(box, this.map)));
+      tiles.forEach(box => box.addEventListener('click', () => handleBoxClick(box, this.map, this)));
 
       // Clear cursor on Escape key press
       document.body.addEventListener("keydown", event => {
@@ -84,14 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
           hideLeadboard();
           hideMediaPlayer();
         }
-        });
+      });
 
       // Reset map on reset button click
-      document.getElementById('rst-btn').addEventListener('click', () => game.resetMap());
+      document.getElementById('rst-btn').addEventListener('click', () => this.resetMap());
     }
 
     // Function to generate a specific map
-    generateMap() {
+    generateMap(theme) {
       this.map = [];
       for (let i = 0; i < this.rows; i++) {
         let row = [];
@@ -99,22 +91,21 @@ document.addEventListener("DOMContentLoaded", () => {
           const box = this.newTile(i,j);
           
           // Define the various tile types based on their positions
-          if (i < grass && i > grass - 4 && j === 15) box.classList.add('wood');
-          else if (i < grass - 3 && i > grass - 7 && j > 13 && j < 17) box.classList.add('leaves');
-          else if (i === grass - 1 && (j === 8 || j === 9)) box.classList.add('bush');
-          else if (i === grass - 1 && (j === 20 || j === 21)) box.classList.add('stone');
-          else if (i === grass) box.classList.add('grass');
-          else if (i >= ground && i < lava) {
-            if (j % 17 === 0 && i === ground + 3)
-              box.classList.add('gold');
-            else if (j % 12 === 0 && i === ground + 1)
-              box.classList.add('silver');
+          if (i < this.road && i > this.road - 4 && j === 15) box.classList.add(theme.wood);
+          else if (i < this.road - 3 && i > this.road - 7 && j > 13 && j < 17) box.classList.add(theme.leaves);
+          else if (i === this.road - 1 && (j === 8 || j === 9)) box.classList.add(theme.plant);
+          else if (i === this.road - 1 && (j === 20 || j === 21)) box.classList.add(theme.rock);
+          else if (i === this.road) box.classList.add(theme.road);
+          else if (i >= this.ground && i < this.liquid) {
+            if (j % 17 === 0 && i === this.ground + 3)
+              box.classList.add(theme.mineral);
+            else if (j % 12 === 0 && i === this.ground + 1)
+              box.classList.add(theme.mineral2);
             else
-              box.classList.add('ground');  
+              box.classList.add(theme.ground);  
           }
-          else if (i === rows - 1) box.classList.add('lava');
-          else
-            box.classList.add('sky');
+          else if (i === this.rows - 1) box.classList.add(theme.liquid);
+          else box.classList.add(theme.sky);
           
           row.push(box);
         }
@@ -142,8 +133,59 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Function to generate a random map
-    generateRandomMap() {
-      
+    generateRandomMap(theme) {
+      this.map = [];
+      console.log('Generating random map');
+      for (let i = 0; i < this.rows; i++) {
+        let row = [];
+        for (let j = 0; j < this.cols; j++) {
+          const box = this.newTile(i, j);
+          if (i === this.rows - 1) box.classList.add(theme.liquid);
+          else if (i >= this.rows - 5 && i < this.rows - 1) box.classList.add(this.randomMineral(theme));
+          else if (i === this.rows - 6) box.classList.add(theme.road);
+          else box.classList.add(theme.sky);
+          row.push(box);
+        }
+        this.map.push(row);
+      }
+    
+      // Add special elements on the road
+      for (let j = 0; j < this.cols; j++) {
+        if (Math.random() < 0.1) {
+          if (Math.random() < 0.5) {
+            this.addTile(this.rows - 7, j, theme.wood); 
+            if (j + 2 < this.cols) {
+              this.addTile(this.rows - 8, j, theme.wood);
+              this.addTile(this.rows - 9, j, theme.wood);
+              this.addTile(this.rows - 10, j, theme.wood);
+              for (let k = -1; k <= 1; k++) 
+                for (let l = -1; l <= 1; l++) 
+                  if (this.rows - 11 + k >= 0 && this.cols + j + l >= 0) 
+                    this.addTile(this.rows - 11 + k, j + l, theme.leaves);
+            }
+          } 
+          else this.addTile(this.rows - 6, j, theme.rock);
+        } 
+        else if (Math.random() < 0.3) this.addTile(this.rows - 7, j, theme.plant);
+      }
+    
+      this.drawMaptoScreen();
+    }
+
+    // Function to choose random mineral
+    randomMineral(theme) {
+      if (Math.random() < 0.93) return theme.ground;
+      let randomMineral = Math.random();
+      if (randomMineral < 0.5) return theme.rock;
+      else if (randomMineral < 0.75) return theme.mineral;
+      else if (randomMineral < 0.875) return theme.mineral2;
+      else return theme.mineral3;
+    }
+
+    // function to add tile and remove sky class
+    addTile(row, col, className) {
+      this.map[row][col].classList.remove('sky');
+      this.map[row][col].classList.add(className);
     }
 
     // Reset the game map
@@ -153,12 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Initialize the game instance
-  const game = new Minecraft(20, 25);
-  game.initialize();
-
   // Function to select a tool
-  function selectTool(toolName, tiles) {
+  function selectTool(toolName, tiles, game) {
     game.selectedTool = toolName;
     const { selectedClass, _ } = toolBox[toolName];
     
@@ -170,7 +208,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Update tile cursor class for each box
     tiles.forEach(box => {
-      Object.values(toolBox).forEach(({ selectedClass: cls }) => {if (cls !== selectedClass && box.classList.contains(cls)) box.classList.remove(cls) });
+      Object.values(toolBox).forEach(({ selectedClass: cls }) => {
+        if (cls !== selectedClass && box.classList.contains(cls)) box.classList.remove(cls);
+      });
       box.classList.add(selectedClass);
     });
   }
@@ -184,7 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Check if neighbor is sky
-  
   function isSky(map, row, col) {
     if (row < 0 || col < 0 || row >= map.length || col >= map[0].length) 
       return false;
@@ -193,17 +232,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Function to handle box click events
-  function handleBoxClick(box, map) {
+  function handleBoxClick(box, map, game) {
     const actions = toolActions[game.selectedTool];
     let row = parseInt(box.dataset.row, 10);
     let col = parseInt(box.dataset.col, 10);
     
-    if (actions && (isSky(map,row+1,col) || isSky(map,row,col+1) || isSky(map,row-1,col) || isSky(map,row,col-1)))
-      removeBox(box, actions)
+    if (actions && (isSky(map, row + 1, col) || isSky(map, row, col + 1) || isSky(map, row - 1, col) || isSky(map, row, col - 1)))
+      removeBox(box, actions, game);
+    else 
+      displayMessage("Cannot harvest; surrounded by other materials. Clear the surrounding materials first.");
   }
 
   // Function to remove box from screen and update inventory
-  function removeBox(box, actions) {
+  function removeBox(box, actions, game) {
     for (const [className, inventoryItem] of Object.entries(actions)) {
       if (box.classList.contains(className)) {
         harvest(box);
@@ -212,11 +253,11 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
       }
     }
-    updateInventory();
+    updateInventory(game);
   }
 
   // Function to update inventory display
-  function updateInventory() {
+  function updateInventory(game) {
     inventory.forEach(item => {
       const itemName = item.classList[1].slice(4);
       item.innerHTML = game.inventoryCounter[itemName];
@@ -232,15 +273,33 @@ document.addEventListener("DOMContentLoaded", () => {
       box.innerText = "";
     }, 500);
   }
-  
+
+  const letsPlay = document.querySelector('.one');
+
+  letsPlay.addEventListener('click', () => {
+    // Initialize the game instance
+    const size = document.querySelector('.map-size').textContent;
+    let rows = mapSize[size].rows;
+    let cols = mapSize[size].cols;
+    let theme = document.querySelector('.theme').textContent;
+    const game = new Minecraft(rows, cols, theme);
+    game.initialize();
+  });
+
   // Tooltip toggle for info button
   document.getElementById('infoButton').addEventListener('click', () => {
     const tooltip = document.getElementById('tooltip');
     tooltip.style.display = (tooltip.style.display === 'none' || tooltip.style.display === '') ? 'flex' : 'none';
-    setTimeout(() => {
-      tooltip.style.display = 'none';
-    }, 1100); // Total delay of 1.1 seconds
+    setTimeout(() => { tooltip.style.display = 'none' }, 1100);
   });
 
+  function displayMessage(message) {
+    const messageContainer = document.getElementById('message-container');
+    messageContainer.textContent = message;
+    messageContainer.style.display = 'block';
+  
+    // Optionally hide the message after a few seconds
+    setTimeout(() => { messageContainer.style.display = 'none' }, 3000);
+  }
   
 });

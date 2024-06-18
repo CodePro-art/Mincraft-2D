@@ -58,9 +58,9 @@ function myFunction() {
 }
 
 function toggleGenerationMode() {
-    // const mapGeneration = document.querySelector('.random-map');
     var spanElement = document.querySelector('.map-generation');
-    spanElement.textContent = (spanElement.textContent === "off") ? "on" : "off";
+    console.log(spanElement.textContent);
+    spanElement.textContent = (spanElement.textContent === "casual") ? "random" : "casual";
 }
 
 function changeMapSize() {
