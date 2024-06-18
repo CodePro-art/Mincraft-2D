@@ -1124,7 +1124,13 @@ td {
 	background: #292a2e;
 	border-radius: 7px;
 }
-
+.small-letters {
+  font-family: 'Minecraftia', sans-serif;
+  font-size: 0.6rem;
+  color: #a0a0a0;
+  /* opacity: 0.5; */
+  margin-top: 5px;
+}
 #message-container{
   display: none;
   position: fixed;

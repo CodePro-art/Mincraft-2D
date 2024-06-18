@@ -51,6 +51,12 @@ function changeTool(key){
     case 'k65':
       document.querySelector('.axe').click();
       break;
+    case 'k66':
+      document.querySelector('.bucket').click();
+      break;
+    case 'k68':
+      document.querySelector('.sword').click();
+      break;
     case 'k83':
       document.querySelector('.shovel').click();
       break;
@@ -88,6 +94,8 @@ function handleKeydown(event) {
     else if (key === 'p' || key === 'P') changeTool('k80');
     else if (key === 'h' || key === 'H') changeTool('k72');
     else if (key === 'a' || key === 'A') changeTool('k65');
+    else if (key === 'b' || key === 'B') changeTool('k66');
+    else if (key === 'd' || key === 'D') changeTool('k68');
     else if (key === 's' || key === 'S') changeTool('k83');
 
     activeElements.forEach(el => el.classList.add('active-key'));
@@ -108,6 +116,8 @@ window.addEventListener('keyup', handleKeyup);
 const toolTips = [
   { selector: '.k65', content: 'Axe tool' },
   { selector: '.s65', content: 'Axe tool' },
+  { selector: '.k66', content: 'Bucket tool' },
+  { selector: '.s66', content: 'Bucket tool' },
   { selector: '.k71', content: 'Play Game' },
   { selector: '.s71', content: 'Play Game' },
   { selector: '.k72', content: 'Hoe tool' },
@@ -138,6 +148,20 @@ const toolTips = [
   { selector: '.four', content: 'Options' },
   { selector: '.five', content: 'Show Leader Board' },
   { selector: '.six', content: 'Play/Mute Music' },
+  { selector: '.inv-diamond', content: 'mining with a pickaxe' },
+  { selector: '.inv-silver', content: 'mining with a pickaxe' },
+  { selector: '.inv-gold', content: 'mining with a pickaxe' },
+  { selector: '.inv-coal', content: 'mining with a pickaxe' },
+  { selector: '.inv-stone', content: 'mining with a pickaxe' },
+  { selector: '.inv-wood', content: 'chopping with an axe' },
+  { selector: '.inv-grass', content: 'chopping tree leaves/bushes with axe or gather from the ground with the shovel ' },
+  { selector: '.inv-iron', content: 'digging with a shovel' },
+  { selector: '.inv-snow', content: 'digging with a shovel'},
+  { selector: '.inv-dirt', content: 'digging with a shovel'},
+  { selector: '.inv-seeds', content: 'farming with a hoe' },
+  { selector: '.inv-ice', content: 'gather water using a bucket' },
+  { selector: '.inv-brick', content: 'collect using hoe on stones and rocks' },
+  { selector: '.inv-sand', content: 'digging with a shovel' },
 ];
 
 
