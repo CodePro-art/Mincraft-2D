@@ -1,11 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Define the map size
-  const mapSize = {
-    small: { rows: 20, cols: 25 },
-    medium: { rows: 20, cols: 30 },
-    large: { rows: 20, cols: 35 }
-  };
+  // Define message to user
+  const MSG = "Cannot harvest; surrounded by other materials. Clear the surrounding materials first.";
 
   // Define the game screen, inventory, and tools
   const screen = document.querySelector('.game-screen');
@@ -18,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     axe: { bush: 'grass', leaves: 'grass', wood: 'wood' },
     pickaxe: { gold: 'gold', stone: 'stone', silver: 'silver', diamond: 'diamond' },
     hoe: { lava: 'coal', stone: 'brick', water: 'ice' },
+    bucket: { lava: 'coal', water: 'ice' },
     default: {}
   };
 
@@ -27,27 +24,35 @@ document.addEventListener("DOMContentLoaded", () => {
     pickaxe: { selectedClass: 'cursor-pickaxe', toolClass: 'pickaxe' },
     shovel: { selectedClass: 'cursor-shovel', toolClass: 'shovel' },
     hoe: { selectedClass: 'cursor-hoe', toolClass: 'hoe' },
+    bucket: { selectedClass: 'cursor-bucket', toolClass: 'bucket' },
+    sword: { selectedClass: 'cursor-sword', toolClass: 'sword' },
     default: { selectedClass: 'cursor-default', toolClass: 'default' }
   };
 
   class Minecraft {
-    constructor(rows, cols, theme = 'normal') {
+    constructor(theme = 'normal', mapSize = 'small') {
       this.selectedTool = "cursor-default";
       this.inventoryCounter = {
         dirt: 0, brick: 0, coal: 0, ice: 0, gold: 0, grass: 0, silver: 0,
-        glass: 0, sand: 0, snow: 0, stone: 0, wood: 0
+        glass: 0, sand: 0, snow: 0, stone: 0, wood: 0, diamond: 0
       };
       this.theme = {
         normal: { liquid: 'lava', ground: 'ground', mineral: 'gold', mineral2: 'silver', mineral3: 'diamond', leaves: 'leaves', rock: 'stone', plant: 'bush', wood: 'wood', sky: 'sky', road: 'grass' },
         winter: { liquid: 'water', ground: 'ground', mineral: 'diamond', mineral2: 'silver', mineral3: 'gold', leaves: 'leaves', rock: 'stone',  plant: 'bush', wood: 'wood', sky: 'sky', road: 'snow'}
       }
-      this.mapSize = 0;
+      // Define the map size
+      const mapSizes = {
+        small: { rows: 20, cols: 25 },
+        medium: { rows: 20, cols: 30 },
+        large: { rows: 20, cols: 35 }
+      };
+      this.mapSize = mapSize;
       this.userChoice = theme;
-      this.rows = rows;
-      this.cols = cols;
-      this.road = rows - 6;
-      this.ground = rows - 5;
-      this.liquid = rows - 1;
+      this.rows = mapSizes[mapSize].rows;
+      this.cols = mapSizes[mapSize].cols;
+      this.road = mapSizes[mapSize].rows - 6;
+      this.ground = mapSizes[mapSize].rows - 5;
+      this.liquid = mapSizes[mapSize].rows - 1;
       this.map = [];
     }
 
@@ -118,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
       for (let i = 0; i < this.rows; i++) {
         for (let j = 0; j < this.cols; j++) {
           screen.appendChild(this.map[i][j]);
-          setTimeout(() => this.map[i][j].classList.add("animate"), (i + j) * 60);
+          setTimeout(() => this.map[i][j].classList.add("animate"), (i + j) * 40);
         }
       }
     }
@@ -135,7 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to generate a random map
     generateRandomMap(theme) {
       this.map = [];
-      console.log('Generating random map');
       for (let i = 0; i < this.rows; i++) {
         let row = [];
         for (let j = 0; j < this.cols; j++) {
@@ -237,10 +241,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let row = parseInt(box.dataset.row, 10);
     let col = parseInt(box.dataset.col, 10);
     
-    if (actions && (isSky(map, row + 1, col) || isSky(map, row, col + 1) || isSky(map, row - 1, col) || isSky(map, row, col - 1)))
-      removeBox(box, actions, game);
-    else 
-      displayMessage("Cannot harvest; surrounded by other materials. Clear the surrounding materials first.");
+    if (isSky(map, row + 1, col) || isSky(map, row, col + 1) || isSky(map, row - 1, col) || isSky(map, row, col - 1)){
+      if (actions) removeBox(box, actions, game);
+    }
+    else {
+      for (const [className, inventoryItem] of Object.entries(actions)) {
+        if (box.classList.contains(className)) {
+          displayMessage(MSG);
+        }
+      }
+    }
   }
 
   // Function to remove box from screen and update inventory
@@ -250,17 +260,21 @@ document.addEventListener("DOMContentLoaded", () => {
         harvest(box);
         box.classList.remove(className);
         game.inventoryCounter[inventoryItem]++;
+        updateInventory(game, inventoryItem);
         break;
       }
     }
-    updateInventory(game);
   }
 
   // Function to update inventory display
-  function updateInventory(game) {
+  function updateInventory(game, element) {
     inventory.forEach(item => {
       const itemName = item.classList[1].slice(4);
-      item.innerHTML = game.inventoryCounter[itemName];
+      if (element === item.classList[1].split('-')[1]){
+        item.classList.add("inv-update");
+        item.innerHTML = game.inventoryCounter[itemName];
+        setTimeout(() => item.classList.remove("inv-update"), 500);
+      }
     });
   }
 
@@ -279,10 +293,8 @@ document.addEventListener("DOMContentLoaded", () => {
   letsPlay.addEventListener('click', () => {
     // Initialize the game instance
     const size = document.querySelector('.map-size').textContent;
-    let rows = mapSize[size].rows;
-    let cols = mapSize[size].cols;
     let theme = document.querySelector('.theme').textContent;
-    const game = new Minecraft(rows, cols, theme);
+    const game = new Minecraft(theme, size);
     game.initialize();
   });
 

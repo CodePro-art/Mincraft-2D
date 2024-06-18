@@ -59,7 +59,6 @@ function myFunction() {
 
 function toggleGenerationMode() {
     var spanElement = document.querySelector('.map-generation');
-    console.log(spanElement.textContent);
     spanElement.textContent = (spanElement.textContent === "casual") ? "random" : "casual";
 }
 

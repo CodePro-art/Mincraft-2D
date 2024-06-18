@@ -247,17 +247,20 @@
       <section class="window-content">
         <br><p style="font-size: large;">Instructions</p></br>
         <p>1. Choose a harvesting tool from your tool box.</p>
-        <p>2. Each tool can be used to harvest specific elements in the game.</p>
-        <p>3. Harvested elements can be found in your inventory and can be used to creat surprizing new materials.</p>
-        <p>4. Use the reset button to start over.</p>
+        <p>2. Each tool is used to harvest specific elements.</p>
+        <p>3. Harvested elements go to your inventory and can be used to creat surprizing new materials.</p>
+        <p>4. Use the reset button to refresh the map.</p>
         <p>5. Use the music buttons to control the volume of the background music.</p></br>
-        <p><span class="toolname">Pickaxe</span>: use to mine <span class="material">stone</span>, <span class="material">gold</span>, and <span class="material">silver</span>.</p>
-        <p><span class="toolname">Axe</span>: use to break <span class="material">wood</span> and <span class="material">trees</span>, and <span class="material">bushes</span>.</p>
-        <p><span class="toolname">Shovel</span>: use to pick up <span class="material">dirt</span>, <span class="material">ground</span>, <span class="material">snow</span>, etc.</p>
-        <p><span class="toolname">Hoe</span>: use to harvest <span class="material">lave</span> and <span class="material">bricks</span>.</p></br>
+        <p><span class="toolname">Pickaxe</span>: mines <span class="material">stone</span>, <span class="material">gold</span>, <span class="material">diampnd</span>, and <span class="material">silver</span>.</p>
+        <p><span class="toolname">Axe</span>: breaks <span class="material">wood</span> and <span class="material">trees</span>, and <span class="material">bushes</span>.</p>
+        <p><span class="toolname">Shovel</span>: picks up <span class="material">dirt</span>, <span class="material">ground</span>, <span class="material">snow</span>, etc.</p>
+        <p><span class="toolname">Hoe</span>: harvests <span class="material">lave</span> and <span class="material">bricks</span>.</p>
+        <p><span class="toolname">Bucket</span>: harvests <span class="material">lave</span> and <span class="material">water</span>.</p>
+        <p><span class="toolname">SWORD!</span>: use to <span class="material">KILL</span> the Legendary <span class="material">END Dragon</span>.</p></br>
         <p>To summon the shortcut keyboard, please press <span class="toolname">K</span>.</p>
         <p>Have fun!</p>
         <p style="font-size: smaller; color: rgb(189, 189, 189);">DISCLAIMER: <em>This mini-game was developed in two days, thus it has some bugs, so please be kind</em></p>
+        <p style="font-size: smaller; color: rgb(189, 189, 189);"><em>Also, the dragon hasn't been seen for ages...</em></p>
       </section>
     </div>
     <div class="marquee">
@@ -386,6 +389,10 @@
               <button class="tool pickaxe"></button>
               <p>PickAxe</p>
             </div>
+            <div class="tool-container">
+              <button class="tool sword"></button>
+              <p>Sword</p>
+            </div>
           </div>
           <div class="right-col">
             <div class="tool-container">
@@ -395,6 +402,10 @@
             <div class="tool-container">
               <button class="tool hoe"></button>
               <p>Hoe</p>
+            </div>
+            <div class="tool-container">
+              <button class="tool bucket"></button>
+              <p>Bucket</p>
             </div>
           </div>
         </div>
@@ -408,8 +419,16 @@
             <p>dirt</p>
           </div>
           <div class="item-container">
+            <button class="inv inv-grass">0</button>
+            <p>grass</p>
+          </div>
+          <div class="item-container">
             <button class="inv inv-brick">0</button>
             <p>brick</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-gold">0</button>
+            <p>gold</p>
           </div>
           <div class="item-container">
             <button class="inv inv-coal">0</button>
@@ -419,25 +438,30 @@
             <button class="inv inv-ice">0</button>
             <p>ice</p>
           </div>
-          <div class="item-container">
-            <button class="inv inv-gold">0</button>
-            <p>gold</p>
-          </div>
-          <div class="item-container">
-            <button class="inv inv-grass">0</button>
-            <p>grass</p>
-          </div>
+          
           
         </div>
         <div class="right-col">
+          <div class="item-container">
+            <button class="inv inv-wood">0</button>
+            <p>wood</p>
+          </div>
+          <div class="item-container">
+            <button class="inv inv-stone">0</button>
+            <p>stone</p>
+          </div>
           <div class="item-container">
             <button class="inv inv-silver">0</button>
             <p>silver</p>
           </div>
           <div class="item-container">
+            <button class="inv inv-diamond">0</button>
+            <p>diamond</p>
+          </div>
+          <!-- <div class="item-container">
             <button class="inv inv-glass">0</button>
             <p>glass</p>
-          </div>
+          </div> -->
           <div class="item-container">
             <button class="inv inv-sand">0</button>
             <p>sand</p>
@@ -445,14 +469,6 @@
           <div class="item-container">
             <button class="inv inv-snow">0</button>
             <p>snow</p>
-          </div>
-          <div class="item-container">
-            <button class="inv inv-stone">0</button>
-            <p>stone</p>
-          </div>
-          <div class="item-container">
-            <button class="inv inv-wood">0</button>
-            <p>wood</p>
           </div>
         </div>
       </div>
