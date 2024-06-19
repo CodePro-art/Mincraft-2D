@@ -13,6 +13,7 @@
   font-family: 'Minecraftia', sans-serif;
   display: flex;
   justify-content: center;
+  animation: JumpIn 0.5s forwards;
 }
 
 .options-logo{
@@ -21,9 +22,43 @@
 }
 
 .hidden {
-  opacity: 0;
   pointer-events: none;
+  animation: JumpOut 1s forwards;  
 }
+
+.visable {
+  animation: JumpIn 1s forwards;
+}
+
+@keyframes JumpIn {
+  0% {
+    opacity: 1;
+    z-index: 999;
+    transform: translateY(-100vh);
+  }
+  
+  100% {
+    opacity: 1;
+    z-index: 999;
+    transform: translateY(0);
+  }
+}
+
+@keyframes JumpOut {
+  0% {
+    z-index: -999;
+    transform: translateY(0);
+  }
+  75% {
+    z-index: -999;
+    opacity: 0.9;
+  }
+  100% {
+    z-index: -999;
+    transform: translateY(0);
+  }
+}
+
 
 .options table {
   margin-top: -300px;
@@ -150,8 +185,8 @@ a.small {
 
 p.bubble {
   top: -23vh;
-  left: -15vw;
-	width: 400px;
+  left: -20vw;
+	width: 500px;
 	text-align: center;
 	line-height: 1.4em;
 	margin: 40px auto;

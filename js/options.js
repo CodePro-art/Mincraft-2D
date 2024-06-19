@@ -39,10 +39,14 @@ var Quotes = [
 // change page
 function changePage(page) {
     const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.classList.add('hidden'));
+    pages.forEach(p => {
+      p.classList.add('hidden');
+      p.classList.remove('visable');
+    });
   
     const newPage = document.querySelector(page);
     newPage.classList.remove('hidden');
+    newPage.classList.add('visable');
 
     displayQuote();
   }
