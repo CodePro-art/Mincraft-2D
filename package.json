@@ -1,7 +1,17 @@
 {
+  
+  "name": "minecraft-2d",
+  "version": "1.0.0",
+  "description": "A 2 dimensional minecraft game",
+  "main": "game.js",
+  "scripts": {
+    "start": "http-server .",
+    "build": "echo 'No build step required'"
+  },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "phosphor-icons": "^1.4.2",
     "tippy.js": "^6.3.7"
   }
+  
 }
