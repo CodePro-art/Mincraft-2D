@@ -1,4 +1,4 @@
-// show leadboard
+// Show leadboard
 function showLeadboard() {
     let leadboard = document.querySelector('.leadboard')
     leadboard.style.display = 'flex';
@@ -9,7 +9,7 @@ function showLeadboard() {
     leadboard.style.display = 'flex';
 }
 
-// show leadboard
+// Hide leadboard
 function hideLeadboard() {
     let leadboard = document.querySelector('.leadboard');
     leadboard.classList.add('hide');

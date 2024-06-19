@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pickaxe: { gold: 'gold', stone: 'stone', silver: 'silver', diamond: 'diamond' },
     hoe: { lava: 'coal', stone: 'brick', water: 'ice' },
     bucket: { lava: 'coal', water: 'ice' },
+    sword: { dragon: 'dragon-scale' },
     default: {}
   };
 
