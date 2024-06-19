@@ -43,9 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       // Define the map size
       const mapSizes = {
-        small: { rows: 20, cols: 25 },
-        medium: { rows: 20, cols: 30 },
-        large: { rows: 20, cols: 35 }
+        small: { rows: 20, cols: 20 },
+        medium: { rows: 20, cols: 25 },
+        large: { rows: 20, cols: 50 }
       };
       this.mapSize = mapSize;
       this.userChoice = theme;
@@ -90,12 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to generate a specific map
     generateMap(theme) {
+      console.log(this.rows, this.cols);
       this.map = [];
       for (let i = 0; i < this.rows; i++) {
         let row = [];
         for (let j = 0; j < this.cols; j++) {
           const box = this.newTile(i,j);
-          
+          box.classList.add(this.mapSize);
           // Define the various tile types based on their positions
           if (i < this.road && i > this.road - 4 && j === 15) box.classList.add(theme.wood);
           else if (i < this.road - 3 && i > this.road - 7 && j > 13 && j < 17) box.classList.add(theme.leaves);
@@ -145,6 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let row = [];
         for (let j = 0; j < this.cols; j++) {
           const box = this.newTile(i, j);
+          box.classList.add(this.mapSize);
           if (i === this.rows - 1) box.classList.add(theme.liquid);
           else if (i >= this.rows - 5 && i < this.rows - 1) box.classList.add(this.randomMineral(theme));
           else if (i === this.rows - 6) box.classList.add(theme.road);
@@ -156,7 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
       // Add special elements on the road
       for (let j = 0; j < this.cols; j++) {
-        if (Math.random() < 0.1) {
+        let odd = 0;
+        if (Math.random() + odd < 0.1) {
+          odd += 0.03;
           if (Math.random() < 0.5) {
             this.addTile(this.rows - 7, j, theme.wood); 
             if (j + 2 < this.cols) {
@@ -171,7 +175,11 @@ document.addEventListener("DOMContentLoaded", () => {
           } 
           else this.addTile(this.rows - 6, j, theme.rock);
         } 
-        else if (Math.random() < 0.3) this.addTile(this.rows - 7, j, theme.plant);
+        else if (Math.random() < 0.23)
+        {
+          this.addTile(this.rows - 7, j, theme.plant);
+          odd = 0;
+        } 
       }
     
       this.drawMaptoScreen();

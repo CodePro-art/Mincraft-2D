@@ -446,6 +446,15 @@ header {
   transform: scale(0);
   transition: 0.3s;
 }
+.box.small{
+  width: 5%;
+}
+.box.medium{
+  width: 4%;
+}
+.box.large{
+  width: 2%;
+}
 .box.animate{
   transform: scale(1);
 }
