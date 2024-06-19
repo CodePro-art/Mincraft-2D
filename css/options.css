@@ -11,10 +11,9 @@
   position: absolute;
   text-align: center;
   font-family: 'Minecraftia', sans-serif;
-  display: flex;
+  display: none;
   justify-content: center;
   animation: JumpIn 0.5s forwards;
-  
 }
 
 .options-logo{
@@ -29,6 +28,7 @@
 }
 
 .visable {
+  display: flex;
   animation: JumpIn 1s forwards;
   z-index: 999;
 }
