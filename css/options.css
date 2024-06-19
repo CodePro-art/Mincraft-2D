@@ -14,6 +14,7 @@
   display: flex;
   justify-content: center;
   animation: JumpIn 0.5s forwards;
+  
 }
 
 .options-logo{
@@ -23,11 +24,13 @@
 
 .hidden {
   pointer-events: none;
-  animation: JumpOut 1s forwards;  
+  animation: JumpOut 1s forwards;
+  z-index: -999;
 }
 
 .visable {
   animation: JumpIn 1s forwards;
+  z-index: 999;
 }
 
 @keyframes JumpIn {
