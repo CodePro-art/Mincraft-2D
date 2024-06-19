@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to generate a specific map
     generateMap(theme) {
-      console.log(this.rows, this.cols);
       this.map = [];
       for (let i = 0; i < this.rows; i++) {
         let row = [];

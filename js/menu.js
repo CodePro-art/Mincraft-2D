@@ -128,7 +128,6 @@ button.addEventListener('click',()=>{
 })
 
 playStop.addEventListener('click',()=>{
-  console.log(playStop);
   if(checkbox.checked){
     playStop.firstElementChild.style.display = "none";
     playStop.lastElementChild.style.display = "block";
