@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "<h4>Use the arrow keys to navigate the menu and press 'Enter' to approve</h4>",
         "<h4>Use the up and down arrows to control the music volume</h4>",
         "<h4>While in the game, follow the instructions on the top right corner</h4></br>",
-        "<h4 class=\"small-letters\"><em>I still have an issue with the spiining menu icons when animated (and not in the original position)</em></h4>",
+        "<h4 class=\"small-letters\"><em>I still have an issue with the spinning menu icons when animated (and not in the original position)</em></h4>",
         "<h4 class=\"small-letters\"><em>Open for suggestions</em></h4>",
     ];
 
